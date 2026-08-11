@@ -9,7 +9,9 @@ namespace Domain.Specification.Params
 {
     public class ContractPaginationParams : PaginationParams
     {
-        public ContractStatus? Status { get; set; }
         public Guid? EmployeeId { get; set; }
+        public Guid? CompanyId { get; set; }
+        public ContractStatus? Status { get; set; }
+        public string? Search { get; set; }
     }
 }

@@ -16,6 +16,12 @@ namespace Domain.Specification.Employee
         {
             AddInclude(e =>e.User);
         }
+
+        public EmployeeSpecification(string PhoneNumber,string Email) 
+            : base(e => e.User.PhoneNumber==PhoneNumber ||e.User.Email==Email)
+        {
+            AddInclude(e => e.User);
+        }
         public EmployeeSpecification(PaginationParams paginationParams)
         {
             Expression<Func<Domain.Entities.Employee, bool>> criteria = c => true;

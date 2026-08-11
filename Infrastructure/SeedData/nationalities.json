@@ -1,0 +1,1757 @@
+[
+  {
+    "Id": "7f65c8ee-2c13-5093-90c8-cc3cd333102a",
+    "NameAr": "أفغانستان",
+    "NameEn": "Afghanistan",
+    "IsoCode": "AF",
+    "IsoCode3": "AFG",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "05f2cc14-027a-567a-829c-867fda6456b8",
+    "NameAr": "ألبانيا",
+    "NameEn": "Albania",
+    "IsoCode": "AL",
+    "IsoCode3": "ALB",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "463e0ce7-2c50-513c-bf9b-ec000a232b08",
+    "NameAr": "الجزائر",
+    "NameEn": "Algeria",
+    "IsoCode": "DZ",
+    "IsoCode3": "DZA",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "09c75ec7-2b34-572a-b0ed-33183be81db1",
+    "NameAr": "أندورا",
+    "NameEn": "Andorra",
+    "IsoCode": "AD",
+    "IsoCode3": "AND",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "9189eac6-e8ad-5270-865f-3090e0c32e62",
+    "NameAr": "أنغولا",
+    "NameEn": "Angola",
+    "IsoCode": "AO",
+    "IsoCode3": "AGO",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "3428353b-f083-5c4f-b3f4-7d86b9312ba3",
+    "NameAr": "أنتيغوا وبربودا",
+    "NameEn": "Antigua and Barbuda",
+    "IsoCode": "AG",
+    "IsoCode3": "ATG",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "afadfd93-f2e3-5af9-8b3a-7713c8ed7d59",
+    "NameAr": "الأرجنتين",
+    "NameEn": "Argentina",
+    "IsoCode": "AR",
+    "IsoCode3": "ARG",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "89d8073f-3f38-5f94-80d9-454acc629a36",
+    "NameAr": "أرمينيا",
+    "NameEn": "Armenia",
+    "IsoCode": "AM",
+    "IsoCode3": "ARM",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "7f3d6a0f-207f-57eb-8962-e3f86a9f3607",
+    "NameAr": "أستراليا",
+    "NameEn": "Australia",
+    "IsoCode": "AU",
+    "IsoCode3": "AUS",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "63841c2d-aaf7-50db-9db1-f57a3f50bea4",
+    "NameAr": "النمسا",
+    "NameEn": "Austria",
+    "IsoCode": "AT",
+    "IsoCode3": "AUT",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "0080c5ac-1142-53ba-b8b7-43a27b7fa3ba",
+    "NameAr": "أذربيجان",
+    "NameEn": "Azerbaijan",
+    "IsoCode": "AZ",
+    "IsoCode3": "AZE",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "70eaf3c5-a509-58bf-aa68-7e3baabd0c06",
+    "NameAr": "البحرين",
+    "NameEn": "Bahamas",
+    "IsoCode": "BS",
+    "IsoCode3": "BHS",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "d25159ad-5d75-5942-b105-c0ecf4409522",
+    "NameAr": "البحرين",
+    "NameEn": "Bahrain",
+    "IsoCode": "BH",
+    "IsoCode3": "BHR",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "d87dadbd-f911-5328-a71c-f3c26bcfe3f6",
+    "NameAr": "بنغلاديش",
+    "NameEn": "Bangladesh",
+    "IsoCode": "BD",
+    "IsoCode3": "BGD",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "9bde1d32-352d-53a9-becb-0f9f05225b9f",
+    "NameAr": "باربادوس",
+    "NameEn": "Barbados",
+    "IsoCode": "BB",
+    "IsoCode3": "BRB",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "aea88250-ad21-57b6-b836-590f5be5634d",
+    "NameAr": "بيلاروسيا",
+    "NameEn": "Belarus",
+    "IsoCode": "BY",
+    "IsoCode3": "BLR",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "1248c6d6-dd3f-5858-bd67-4b2cf05ff3c8",
+    "NameAr": "بلجيكا",
+    "NameEn": "Belgium",
+    "IsoCode": "BE",
+    "IsoCode3": "BEL",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "4f8328b2-005e-5bf3-b182-bc03d8236af9",
+    "NameAr": "بليز",
+    "NameEn": "Belize",
+    "IsoCode": "BZ",
+    "IsoCode3": "BLZ",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "93abf8d8-77df-5bdc-b5f0-8be0acea206f",
+    "NameAr": "بنين",
+    "NameEn": "Benin",
+    "IsoCode": "BJ",
+    "IsoCode3": "BEN",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "0f7c6a00-9799-536f-bcd4-aa31dcddf84a",
+    "NameAr": "بوتان",
+    "NameEn": "Bhutan",
+    "IsoCode": "BT",
+    "IsoCode3": "BTN",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "094ef99d-75b9-548c-b97b-c43dec43f521",
+    "NameAr": "بوليفيا",
+    "NameEn": "Bolivia",
+    "IsoCode": "BO",
+    "IsoCode3": "BOL",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "2caff724-c8ee-5217-957a-a1d8f4e62b1b",
+    "NameAr": "البوسنة والهرسك",
+    "NameEn": "Bosnia and Herzegovina",
+    "IsoCode": "BA",
+    "IsoCode3": "BIH",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "42812420-058b-5a55-ae52-a7fb6ebcc7f5",
+    "NameAr": "بوتسوانا",
+    "NameEn": "Botswana",
+    "IsoCode": "BW",
+    "IsoCode3": "BWA",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "d8b16a01-31e6-5e11-8032-6963f0a6d8c3",
+    "NameAr": "البرازيل",
+    "NameEn": "Brazil",
+    "IsoCode": "BR",
+    "IsoCode3": "BRA",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "c1ae315a-2e4e-5179-95b9-61b45209cfc9",
+    "NameAr": "بروناي",
+    "NameEn": "Brunei",
+    "IsoCode": "BN",
+    "IsoCode3": "BRN",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "fd42f44a-c3fd-521f-b359-57e13a9297b6",
+    "NameAr": "بلغاريا",
+    "NameEn": "Bulgaria",
+    "IsoCode": "BG",
+    "IsoCode3": "BGR",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "68f583e2-745e-5683-87d3-0e9145ee9361",
+    "NameAr": "بوركينا فاسو",
+    "NameEn": "Burkina Faso",
+    "IsoCode": "BF",
+    "IsoCode3": "BFA",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "33032bb0-edc1-5f47-ae2b-9f605d166f56",
+    "NameAr": "بوروندي",
+    "NameEn": "Burundi",
+    "IsoCode": "BI",
+    "IsoCode3": "BDI",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "969350e2-1772-5ef9-b5d3-dc93b569da78",
+    "NameAr": "الرأس الأخضر",
+    "NameEn": "Cabo Verde",
+    "IsoCode": "CV",
+    "IsoCode3": "CPV",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "2e3a11fc-3ad9-56d1-986c-bbef44a5e67b",
+    "NameAr": "كمبوديا",
+    "NameEn": "Cambodia",
+    "IsoCode": "KH",
+    "IsoCode3": "KHM",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "e65e6065-8d2b-5f3e-ac85-45a42c846ff0",
+    "NameAr": "الكاميرون",
+    "NameEn": "Cameroon",
+    "IsoCode": "CM",
+    "IsoCode3": "CMR",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "7fd0d86c-bfe9-5298-85fb-a943326947d9",
+    "NameAr": "كندا",
+    "NameEn": "Canada",
+    "IsoCode": "CA",
+    "IsoCode3": "CAN",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "6e0db5a3-4c0d-5496-941b-59570f6b8c2f",
+    "NameAr": "جمهورية أفريقيا الوسطى",
+    "NameEn": "Central African Republic",
+    "IsoCode": "CF",
+    "IsoCode3": "CAF",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "bf8cf58b-8293-5a93-8be3-cddc6b8ceca5",
+    "NameAr": "تشاد",
+    "NameEn": "Chad",
+    "IsoCode": "TD",
+    "IsoCode3": "TCD",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "c8d66273-6eed-56a7-b6b0-91b75d5ef88c",
+    "NameAr": "تشيلي",
+    "NameEn": "Chile",
+    "IsoCode": "CL",
+    "IsoCode3": "CHL",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "4ce4233c-2e64-56fe-b606-8297e44f7f45",
+    "NameAr": "الصين",
+    "NameEn": "China",
+    "IsoCode": "CN",
+    "IsoCode3": "CHN",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "245cc5d7-54fc-514b-afbd-8381492696ff",
+    "NameAr": "كولومبيا",
+    "NameEn": "Colombia",
+    "IsoCode": "CO",
+    "IsoCode3": "COL",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "7a118b08-2464-5117-9243-4992faf8a4b9",
+    "NameAr": "جزر القمر",
+    "NameEn": "Comoros",
+    "IsoCode": "KM",
+    "IsoCode3": "COM",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "0946361b-44f5-5000-b4d6-8fde55de7785",
+    "NameAr": "الكونغو",
+    "NameEn": "Congo (Congo-Brazzaville)",
+    "IsoCode": "CG",
+    "IsoCode3": "COG",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "3f1e9b30-c94e-5a8c-88d9-caa1a713e654",
+    "NameAr": "جمهورية الكونغو الديمقراطية",
+    "NameEn": "Democratic Republic of the Congo",
+    "IsoCode": "CD",
+    "IsoCode3": "COD",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "407a76c0-df0f-526f-a5f4-349f0e126ca9",
+    "NameAr": "كوستاريكا",
+    "NameEn": "Costa Rica",
+    "IsoCode": "CR",
+    "IsoCode3": "CRI",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "772e3bab-e344-58e8-9fe1-5b785a38eae0",
+    "NameAr": "كرواتيا",
+    "NameEn": "Croatia",
+    "IsoCode": "HR",
+    "IsoCode3": "HRV",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "7fe06b2a-5feb-522e-aff9-bf2410374c97",
+    "NameAr": "كوبا",
+    "NameEn": "Cuba",
+    "IsoCode": "CU",
+    "IsoCode3": "CUB",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "8ae33ec0-5239-5a7a-b1c0-84ae0c04ea99",
+    "NameAr": "قبرص",
+    "NameEn": "Cyprus",
+    "IsoCode": "CY",
+    "IsoCode3": "CYP",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "5d9e984b-976d-5191-b66d-e4744b2f4adf",
+    "NameAr": "الجمهورية التشيكية",
+    "NameEn": "Czechia (Czech Republic)",
+    "IsoCode": "CZ",
+    "IsoCode3": "CZE",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "f6b4e679-17ba-56fe-a1b0-412e041be6c9",
+    "NameAr": "الدنمارك",
+    "NameEn": "Denmark",
+    "IsoCode": "DK",
+    "IsoCode3": "DNK",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "f6a863d9-45a3-5aa0-88c3-60c5fe81985b",
+    "NameAr": "جيبوتي",
+    "NameEn": "Djibouti",
+    "IsoCode": "DJ",
+    "IsoCode3": "DJI",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "c392f255-8959-5a2a-8332-8dfce39390f0",
+    "NameAr": "دومينيكا",
+    "NameEn": "Dominica",
+    "IsoCode": "DM",
+    "IsoCode3": "DMA",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "5b7cc53f-37ac-57d8-a76f-ecd603f8c9f3",
+    "NameAr": "جمهورية الدومينيكان",
+    "NameEn": "Dominican Republic",
+    "IsoCode": "DO",
+    "IsoCode3": "DOM",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "01ab7906-a76a-58bc-ae89-1ccaf1b60513",
+    "NameAr": "الإكوادور",
+    "NameEn": "Ecuador",
+    "IsoCode": "EC",
+    "IsoCode3": "ECU",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "56c855a2-9bdb-5725-9a49-7405d0d5bec2",
+    "NameAr": "مصر",
+    "NameEn": "Egypt",
+    "IsoCode": "EG",
+    "IsoCode3": "EGY",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "3fdcc541-e3b1-5059-bffc-43ebf0fb4918",
+    "NameAr": "السلفادور",
+    "NameEn": "El Salvador",
+    "IsoCode": "SV",
+    "IsoCode3": "SLV",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "64790571-0f95-5e01-bfb2-98660433f377",
+    "NameAr": "غينيا الاستوائية",
+    "NameEn": "Equatorial Guinea",
+    "IsoCode": "GQ",
+    "IsoCode3": "GNQ",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "0945de51-f033-55af-8a83-c4ea51d9e4fe",
+    "NameAr": "إريتريا",
+    "NameEn": "Eritrea",
+    "IsoCode": "ER",
+    "IsoCode3": "ERI",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "16131ebb-cdd8-57c0-9e49-d7d1ad6fb770",
+    "NameAr": "إستونيا",
+    "NameEn": "Estonia",
+    "IsoCode": "EE",
+    "IsoCode3": "EST",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "3f61130f-de4d-5f8c-b13a-3d6ccb3bd2a0",
+    "NameAr": "إسواتيني",
+    "NameEn": "Eswatini",
+    "IsoCode": "SZ",
+    "IsoCode3": "SWZ",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "39598b05-534e-5d08-b56e-9de82e7550d9",
+    "NameAr": "إثيوبيا",
+    "NameEn": "Ethiopia",
+    "IsoCode": "ET",
+    "IsoCode3": "ETH",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "6344e1a9-ae2d-5e65-84b4-35696c7a5ba7",
+    "NameAr": "فيجي",
+    "NameEn": "Fiji",
+    "IsoCode": "FJ",
+    "IsoCode3": "FJI",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "ed144413-a7ac-5239-bc00-8b2f386339b5",
+    "NameAr": "فنلندا",
+    "NameEn": "Finland",
+    "IsoCode": "FI",
+    "IsoCode3": "FIN",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "3fd66559-8d75-5096-a8de-baf263d469ba",
+    "NameAr": "فرنسا",
+    "NameEn": "France",
+    "IsoCode": "FR",
+    "IsoCode3": "FRA",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "8fc5e2b3-300d-5ad1-9792-337a80c152ae",
+    "NameAr": "الغابون",
+    "NameEn": "Gabon",
+    "IsoCode": "GA",
+    "IsoCode3": "GAB",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "6759e588-b2dd-57ee-8eba-79a2914eb692",
+    "NameAr": "غامبيا",
+    "NameEn": "Gambia",
+    "IsoCode": "GM",
+    "IsoCode3": "GMB",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "5e71c8c7-9d9c-5713-ac00-90e928c1d08e",
+    "NameAr": "جورجيا",
+    "NameEn": "Georgia",
+    "IsoCode": "GE",
+    "IsoCode3": "GEO",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "3010b09f-1ec9-58c8-8040-04244e918295",
+    "NameAr": "ألمانيا",
+    "NameEn": "Germany",
+    "IsoCode": "DE",
+    "IsoCode3": "DEU",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "808d5151-47dc-5936-b497-4232d76f150a",
+    "NameAr": "غانا",
+    "NameEn": "Ghana",
+    "IsoCode": "GH",
+    "IsoCode3": "GHA",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "4d6853e3-c5f0-5050-8dad-cc33ce626f7a",
+    "NameAr": "اليونان",
+    "NameEn": "Greece",
+    "IsoCode": "GR",
+    "IsoCode3": "GRC",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "a87476c0-976d-5be4-814f-f871df75c57d",
+    "NameAr": "غرينادا",
+    "NameEn": "Grenada",
+    "IsoCode": "GD",
+    "IsoCode3": "GRD",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "6d14e11a-5824-5a2d-948f-2429cfc9261f",
+    "NameAr": "غواتيمالا",
+    "NameEn": "Guatemala",
+    "IsoCode": "GT",
+    "IsoCode3": "GTM",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "73ca01e8-c966-5eae-aaed-237a6cc4d623",
+    "NameAr": "غينيا",
+    "NameEn": "Guinea",
+    "IsoCode": "GN",
+    "IsoCode3": "GIN",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "7f2dfb77-a7f7-56ff-96d8-94c9e000f249",
+    "NameAr": "غينيا بيساو",
+    "NameEn": "Guinea-Bissau",
+    "IsoCode": "GW",
+    "IsoCode3": "GNB",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "9c10b17b-c1bb-5392-8520-8045e7db7e16",
+    "NameAr": "غيانا",
+    "NameEn": "Guyana",
+    "IsoCode": "GY",
+    "IsoCode3": "GUY",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "03777beb-e1a6-530f-9a7d-17d57d9c577e",
+    "NameAr": "هايتي",
+    "NameEn": "Haiti",
+    "IsoCode": "HT",
+    "IsoCode3": "HTI",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "011a9351-e185-57aa-98c0-bd1aaea99ee0",
+    "NameAr": "هندوراس",
+    "NameEn": "Honduras",
+    "IsoCode": "HN",
+    "IsoCode3": "HND",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "0e184f37-fe8f-5214-a0b6-630b2c65610b",
+    "NameAr": "المجر",
+    "NameEn": "Hungary",
+    "IsoCode": "HU",
+    "IsoCode3": "HUN",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "a903411a-ab5b-50b5-9df4-08659623b124",
+    "NameAr": "آيسلندا",
+    "NameEn": "Iceland",
+    "IsoCode": "IS",
+    "IsoCode3": "ISL",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "247cda2b-0fc4-531b-a279-a45764077e93",
+    "NameAr": "الهند",
+    "NameEn": "India",
+    "IsoCode": "IN",
+    "IsoCode3": "IND",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "c96c5632-24fc-5d4b-b477-9febe406d0a6",
+    "NameAr": "إندونيسيا",
+    "NameEn": "Indonesia",
+    "IsoCode": "ID",
+    "IsoCode3": "IDN",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "cc9e7a51-569d-5f90-a22e-971852e84128",
+    "NameAr": "إيران",
+    "NameEn": "Iran",
+    "IsoCode": "IR",
+    "IsoCode3": "IRN",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "05b4e9cf-6e77-513c-9b9d-64c36fcf06d2",
+    "NameAr": "العراق",
+    "NameEn": "Iraq",
+    "IsoCode": "IQ",
+    "IsoCode3": "IRQ",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "53a5583c-f6c0-56fe-857b-d02654f1bb80",
+    "NameAr": "أيرلندا",
+    "NameEn": "Ireland",
+    "IsoCode": "IE",
+    "IsoCode3": "IRL",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "79bc5bde-e189-545b-9d04-713cead5b08d",
+    "NameAr": "فلسطين",
+    "NameEn": "Palestine",
+    "IsoCode": "PS",
+    "IsoCode3": "PSE",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "6c8df019-c9b6-5fb7-890c-a27bfbde309f",
+    "NameAr": "إيطاليا",
+    "NameEn": "Italy",
+    "IsoCode": "IT",
+    "IsoCode3": "ITA",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "7d9ec172-3cd2-5481-81f9-6cdc5d574468",
+    "NameAr": "كوت ديفوار",
+    "NameEn": "Ivory Coast (Côte d'Ivoire)",
+    "IsoCode": "CI",
+    "IsoCode3": "CIV",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "95afda8f-0407-5e74-a5e6-1e824f5fca9f",
+    "NameAr": "جاميكا",
+    "NameEn": "Jamaica",
+    "IsoCode": "JM",
+    "IsoCode3": "JAM",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "0d50b486-76be-5db2-8c9b-61f038879b72",
+    "NameAr": "اليابان",
+    "NameEn": "Japan",
+    "IsoCode": "JP",
+    "IsoCode3": "JPN",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "e6e82510-0942-5096-af51-cc191d06b41a",
+    "NameAr": "الأردن",
+    "NameEn": "Jordan",
+    "IsoCode": "JO",
+    "IsoCode3": "JOR",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "3ec86df2-302e-510b-b518-26fee201664a",
+    "NameAr": "كازاخستان",
+    "NameEn": "Kazakhstan",
+    "IsoCode": "KZ",
+    "IsoCode3": "KAZ",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "f30f7a48-e5b8-57fe-b11e-90ba97b27537",
+    "NameAr": "كينيا",
+    "NameEn": "Kenya",
+    "IsoCode": "KE",
+    "IsoCode3": "KEN",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "4e610235-eca4-56e3-bce6-78b64f100dbd",
+    "NameAr": "كيريباتي",
+    "NameEn": "Kiribati",
+    "IsoCode": "KI",
+    "IsoCode3": "KIR",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "a418f3d5-7897-51d0-bf52-ddbb4a0376e0",
+    "NameAr": "الكويت",
+    "NameEn": "Kuwait",
+    "IsoCode": "KW",
+    "IsoCode3": "KWT",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "913dc322-78ee-5c33-abe5-20c50ff9b951",
+    "NameAr": "قيرغيزستان",
+    "NameEn": "Kyrgyzstan",
+    "IsoCode": "KG",
+    "IsoCode3": "KGZ",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "aa581f8f-1c14-5b29-b05a-ecc336071662",
+    "NameAr": "لاوس",
+    "NameEn": "Laos",
+    "IsoCode": "LA",
+    "IsoCode3": "LAO",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "3efef8c2-fbe9-5bb6-b26d-9276bc690d83",
+    "NameAr": "لاتفيا",
+    "NameEn": "Latvia",
+    "IsoCode": "LV",
+    "IsoCode3": "LVA",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "d3643f5b-6597-5b4a-862e-284657338dfe",
+    "NameAr": "لبنان",
+    "NameEn": "Lebanon",
+    "IsoCode": "LB",
+    "IsoCode3": "LBN",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "9922acf0-7c04-5eb1-a74d-92358e7233d0",
+    "NameAr": "ليسوتو",
+    "NameEn": "Lesotho",
+    "IsoCode": "LS",
+    "IsoCode3": "LSO",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "4a7af781-676f-53e5-a551-02e0cff971a0",
+    "NameAr": "ليبيريا",
+    "NameEn": "Liberia",
+    "IsoCode": "LR",
+    "IsoCode3": "LBR",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "7a02ff20-2732-52ed-a0de-fb1b1686dfd1",
+    "NameAr": "ليبيا",
+    "NameEn": "Libya",
+    "IsoCode": "LY",
+    "IsoCode3": "LBY",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "f236d347-e130-5308-93f9-ef6649d49dec",
+    "NameAr": "ليختنشتاين",
+    "NameEn": "Liechtenstein",
+    "IsoCode": "LI",
+    "IsoCode3": "LIE",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "b5a5db63-4763-5deb-87b6-55048cd761e9",
+    "NameAr": "ليتوانيا",
+    "NameEn": "Lithuania",
+    "IsoCode": "LT",
+    "IsoCode3": "LTU",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "8727507d-bcc1-50e3-9cd8-6a85c057f00a",
+    "NameAr": "لوكسمبورغ",
+    "NameEn": "Luxembourg",
+    "IsoCode": "LU",
+    "IsoCode3": "LUX",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "30048d0a-8bf0-5e72-b582-2af1013a956d",
+    "NameAr": "مدغشقر",
+    "NameEn": "Madagascar",
+    "IsoCode": "MG",
+    "IsoCode3": "MDG",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "3c082aba-384c-5b27-a2c9-63e50a583094",
+    "NameAr": "مالاوي",
+    "NameEn": "Malawi",
+    "IsoCode": "MW",
+    "IsoCode3": "MWI",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "513e2f39-575c-5636-87ee-a5af0239d912",
+    "NameAr": "ماليزيا",
+    "NameEn": "Malaysia",
+    "IsoCode": "MY",
+    "IsoCode3": "MYS",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "9d717fee-cb9b-52d6-9074-07cb1a4dc72e",
+    "NameAr": "جزر المالديف",
+    "NameEn": "Maldives",
+    "IsoCode": "MV",
+    "IsoCode3": "MDV",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "9ef7cb56-d5cf-5476-aaf9-b03a38268adc",
+    "NameAr": "مالي",
+    "NameEn": "Mali",
+    "IsoCode": "ML",
+    "IsoCode3": "MLI",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "e7c5825e-8845-5f93-8e98-bdf50af4a09f",
+    "NameAr": "مالطا",
+    "NameEn": "Malta",
+    "IsoCode": "MT",
+    "IsoCode3": "MLT",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "4286e991-0506-50c2-a137-dce9385cb415",
+    "NameAr": "جزر مارشال",
+    "NameEn": "Marshall Islands",
+    "IsoCode": "MH",
+    "IsoCode3": "MHL",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "6baeb101-4b22-5ed8-a278-4b638d2e3ec2",
+    "NameAr": "موريتانيا",
+    "NameEn": "Mauritania",
+    "IsoCode": "MR",
+    "IsoCode3": "MRT",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "bcd8aac8-eec7-5dac-a586-4f50903c51d7",
+    "NameAr": "موريشيوس",
+    "NameEn": "Mauritius",
+    "IsoCode": "MU",
+    "IsoCode3": "MUS",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "69012f8f-3e37-5e72-980a-20565a491c72",
+    "NameAr": "المكسيك",
+    "NameEn": "Mexico",
+    "IsoCode": "MX",
+    "IsoCode3": "MEX",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "45429bdc-67aa-5583-8a63-8e9943149e24",
+    "NameAr": "ميكرونيزيا",
+    "NameEn": "Micronesia",
+    "IsoCode": "FM",
+    "IsoCode3": "FSM",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "4269c307-ce78-5fac-a2e9-8a9f456eb5fc",
+    "NameAr": "مولدوفا",
+    "NameEn": "Moldova",
+    "IsoCode": "MD",
+    "IsoCode3": "MDA",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "2c1bf9be-1740-588d-88cd-51f19b721c81",
+    "NameAr": "موناكو",
+    "NameEn": "Monaco",
+    "IsoCode": "MC",
+    "IsoCode3": "MCO",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "bff802d5-0848-5d38-b957-1570f6a89488",
+    "NameAr": "منغوليا",
+    "NameEn": "Mongolia",
+    "IsoCode": "MN",
+    "IsoCode3": "MNG",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "32f1d54e-2eb3-505b-be51-dfc1118f4c97",
+    "NameAr": "الجبل الأسود",
+    "NameEn": "Montenegro",
+    "IsoCode": "ME",
+    "IsoCode3": "MNE",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "1ad99c9e-b176-53e4-8e78-0a68ceb5756e",
+    "NameAr": "المغرب",
+    "NameEn": "Morocco",
+    "IsoCode": "MA",
+    "IsoCode3": "MAR",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "1ee1fe97-dfc5-5bde-b0cb-cd393d16b872",
+    "NameAr": "موزمبيق",
+    "NameEn": "Mozambique",
+    "IsoCode": "MZ",
+    "IsoCode3": "MOZ",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "b0d97c77-5cd4-5719-9b0e-5074c8e97d6c",
+    "NameAr": "ميanmar",
+    "NameEn": "Myanmar (Burma)",
+    "IsoCode": "MM",
+    "IsoCode3": "MMR",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "1f816b27-d093-5c9e-8d72-860fe71a9ba8",
+    "NameAr": "ناميبيا",
+    "NameEn": "Namibia",
+    "IsoCode": "NA",
+    "IsoCode3": "NAM",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "6947e99f-aee2-58eb-98d6-5635e0f68a72",
+    "NameAr": "ناورو",
+    "NameEn": "Nauru",
+    "IsoCode": "NR",
+    "IsoCode3": "NRU",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "1b0748ad-d380-59d0-a49d-74b50b2b0f90",
+    "NameAr": "نيبال",
+    "NameEn": "Nepal",
+    "IsoCode": "NP",
+    "IsoCode3": "NPL",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "89ff62eb-1918-5192-98a7-7d97171bcd65",
+    "NameAr": "هولندا",
+    "NameEn": "Netherlands",
+    "IsoCode": "NL",
+    "IsoCode3": "NLD",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "894d96c9-165f-5953-8697-ace0dc4ab836",
+    "NameAr": "نيوزيلندا",
+    "NameEn": "New Zealand",
+    "IsoCode": "NZ",
+    "IsoCode3": "NZL",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "e8f969d4-d822-5835-8bdb-17b584d46d69",
+    "NameAr": "نيكاراغوا",
+    "NameEn": "Nicaragua",
+    "IsoCode": "NI",
+    "IsoCode3": "NIC",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "66abb2ce-bb7b-5e1d-a1bf-833f22aa0176",
+    "NameAr": "النيجر",
+    "NameEn": "Niger",
+    "IsoCode": "NE",
+    "IsoCode3": "NER",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "2d35d000-4798-5d81-ad3f-10d6c7c73716",
+    "NameAr": "نيجيريا",
+    "NameEn": "Nigeria",
+    "IsoCode": "NG",
+    "IsoCode3": "NGA",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "a740c7ff-c5d7-58f6-9e35-7244326a75a4",
+    "NameAr": "كوريا الشمالية",
+    "NameEn": "North Korea",
+    "IsoCode": "KP",
+    "IsoCode3": "PRK",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "9d4c7741-6f71-55f6-84c7-75959fd4d48c",
+    "NameAr": "مقدونيا الشمالية",
+    "NameEn": "North Macedonia",
+    "IsoCode": "MK",
+    "IsoCode3": "MKD",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "f5390dad-eddf-57d7-846b-28b2c47d6a44",
+    "NameAr": "النرويج",
+    "NameEn": "Norway",
+    "IsoCode": "NO",
+    "IsoCode3": "NOR",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "2c5503ea-7301-5683-9e92-fb678c8dd4bb",
+    "NameAr": "عُمان",
+    "NameEn": "Oman",
+    "IsoCode": "OM",
+    "IsoCode3": "OMN",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "2c33f9a5-7bf7-547b-b1ca-77cef2b67929",
+    "NameAr": "باكستان",
+    "NameEn": "Pakistan",
+    "IsoCode": "PK",
+    "IsoCode3": "PAK",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "e68cbd64-5466-5bdf-80ff-cf3e51fdfeea",
+    "NameAr": "بالاو",
+    "NameEn": "Palau",
+    "IsoCode": "PW",
+    "IsoCode3": "PLW",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "02d15a54-6aeb-53d1-ac81-03e3576f5702",
+    "NameAr": "بنما",
+    "NameEn": "Panama",
+    "IsoCode": "PA",
+    "IsoCode3": "PAN",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "230f1595-1ee1-585b-bcf6-8c05ac3cabe6",
+    "NameAr": "بابوا غينيا الجديدة",
+    "NameEn": "Papua New Guinea",
+    "IsoCode": "PG",
+    "IsoCode3": "PNG",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "fd7ccf96-b6ee-5e05-89ae-bc11f7f2bf6a",
+    "NameAr": "باراغواي",
+    "NameEn": "Paraguay",
+    "IsoCode": "PY",
+    "IsoCode3": "PRY",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "26193dfa-28a0-5a69-8ca1-289389a5e453",
+    "NameAr": "بيرو",
+    "NameEn": "Peru",
+    "IsoCode": "PE",
+    "IsoCode3": "PER",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "a5b3e4a0-a58e-5a9a-9c8d-b601d48dc877",
+    "NameAr": "الفلبين",
+    "NameEn": "Philippines",
+    "IsoCode": "PH",
+    "IsoCode3": "PHL",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "049f0cb1-5d09-5c52-b7d5-721d69e2d8b8",
+    "NameAr": "بولندا",
+    "NameEn": "Poland",
+    "IsoCode": "PL",
+    "IsoCode3": "POL",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "92864198-86a7-5faa-b3d6-3385b29ad0c0",
+    "NameAr": "البرتغال",
+    "NameEn": "Portugal",
+    "IsoCode": "PT",
+    "IsoCode3": "PRT",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "5c9064e8-18b9-54aa-9b03-560fa479fbfc",
+    "NameAr": "قطر",
+    "NameEn": "Qatar",
+    "IsoCode": "QA",
+    "IsoCode3": "QAT",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "fe51c9f0-6cde-551b-97d6-f860de8546f2",
+    "NameAr": "رومانيا",
+    "NameEn": "Romania",
+    "IsoCode": "RO",
+    "IsoCode3": "ROU",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "de362c09-88a2-5459-b285-62b4c2a53ac3",
+    "NameAr": "روسيا",
+    "NameEn": "Russia",
+    "IsoCode": "RU",
+    "IsoCode3": "RUS",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "30df8644-1333-52e7-95fb-8021d32338c1",
+    "NameAr": "رواندا",
+    "NameEn": "Rwanda",
+    "IsoCode": "RW",
+    "IsoCode3": "RWA",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "62f53131-fa0a-5292-a608-ce360f6759db",
+    "NameAr": "سانت كيتس ونيفيس",
+    "NameEn": "Saint Kitts and Nevis",
+    "IsoCode": "KN",
+    "IsoCode3": "KNA",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "5f6dfe39-7361-5c66-a7b1-14808de05cba",
+    "NameAr": "سانت لوسيا",
+    "NameEn": "Saint Lucia",
+    "IsoCode": "LC",
+    "IsoCode3": "LCA",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "07ff3cf0-8daf-5bc1-b1c2-9e084e187309",
+    "NameAr": "سانت فينسنت والغرينادين",
+    "NameEn": "Saint Vincent and the Grenadines",
+    "IsoCode": "VC",
+    "IsoCode3": "VCT",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "ba36820f-2070-56f8-ba2d-65b63e5ca8d2",
+    "NameAr": "ساموا",
+    "NameEn": "Samoa",
+    "IsoCode": "WS",
+    "IsoCode3": "WSM",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "ef87facd-5d4f-532f-a382-6c3ecf62ac51",
+    "NameAr": "سان مارينو",
+    "NameEn": "San Marino",
+    "IsoCode": "SM",
+    "IsoCode3": "SMR",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "edbfd119-bee5-5147-9ff1-520ce4a3e015",
+    "NameAr": "ساو تومي وبرينسيب",
+    "NameEn": "Sao Tome and Principe",
+    "IsoCode": "ST",
+    "IsoCode3": "STP",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "72028bce-827d-57c5-a059-ed291f61dcdc",
+    "NameAr": "المملكة العربية السعودية",
+    "NameEn": "Saudi Arabia",
+    "IsoCode": "SA",
+    "IsoCode3": "SAU",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "e742dd41-42ba-5e32-8fd8-c8db393dd30f",
+    "NameAr": "السنغال",
+    "NameEn": "Senegal",
+    "IsoCode": "SN",
+    "IsoCode3": "SEN",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "2bc94910-6e0f-5d4d-a0e7-206c385eb5ac",
+    "NameAr": "صربيا",
+    "NameEn": "Serbia",
+    "IsoCode": "RS",
+    "IsoCode3": "SRB",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "659fd4c0-609e-5743-be82-f519966c747d",
+    "NameAr": "سيشل",
+    "NameEn": "Seychelles",
+    "IsoCode": "SC",
+    "IsoCode3": "SYC",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "bb86a662-68d9-59ff-8e86-ae3d6334f331",
+    "NameAr": "سيراليون",
+    "NameEn": "Sierra Leone",
+    "IsoCode": "SL",
+    "IsoCode3": "SLE",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "1b7e38c9-d8ab-506e-a1ee-02936089eed9",
+    "NameAr": "سنغافورة",
+    "NameEn": "Singapore",
+    "IsoCode": "SG",
+    "IsoCode3": "SGP",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "9a82b40a-0a6a-598d-9e27-ba9fb828755f",
+    "NameAr": "سلوفاكيا",
+    "NameEn": "Slovakia",
+    "IsoCode": "SK",
+    "IsoCode3": "SVK",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "eaf519d5-11be-57ab-86fd-cb095cd892df",
+    "NameAr": "سلوفينيا",
+    "NameEn": "Slovenia",
+    "IsoCode": "SI",
+    "IsoCode3": "SVN",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "2a9f8483-0110-5bcf-b354-e1e464cf387d",
+    "NameAr": "جزر سليمان",
+    "NameEn": "Solomon Islands",
+    "IsoCode": "SB",
+    "IsoCode3": "SLB",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "65cdab08-7d37-52be-ac4f-7163cf53419d",
+    "NameAr": "الصومال",
+    "NameEn": "Somalia",
+    "IsoCode": "SO",
+    "IsoCode3": "SOM",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "159129ca-d6dc-5af9-b529-8e930fff9697",
+    "NameAr": "جنوب أفريقيا",
+    "NameEn": "South Africa",
+    "IsoCode": "ZA",
+    "IsoCode3": "ZAF",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "1eb14e94-01bb-5d15-8063-c1df4785e274",
+    "NameAr": "كوريا الجنوبية",
+    "NameEn": "South Korea",
+    "IsoCode": "KR",
+    "IsoCode3": "KOR",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "6fd7883d-cf51-5fd8-a6e6-e566fe36bd97",
+    "NameAr": "جنوب السودان",
+    "NameEn": "South Sudan",
+    "IsoCode": "SS",
+    "IsoCode3": "SSD",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "f0a874f1-577d-5146-92a0-5d6acd4d8076",
+    "NameAr": "إسبانيا",
+    "NameEn": "Spain",
+    "IsoCode": "ES",
+    "IsoCode3": "ESP",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "5da0c061-5ea5-5bff-8f9b-bb794c69b634",
+    "NameAr": "سريلانكا",
+    "NameEn": "Sri Lanka",
+    "IsoCode": "LK",
+    "IsoCode3": "LKA",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "318453f8-63f1-50d7-a2cf-6ca37fd3b463",
+    "NameAr": "السودان",
+    "NameEn": "Sudan",
+    "IsoCode": "SD",
+    "IsoCode3": "SDN",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "9bfcb3a6-9fd4-5334-8404-9fb207e2bc14",
+    "NameAr": "سورينام",
+    "NameEn": "Suriname",
+    "IsoCode": "SR",
+    "IsoCode3": "SUR",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "a03d4525-5a05-53cf-981e-67f418497861",
+    "NameAr": "السويد",
+    "NameEn": "Sweden",
+    "IsoCode": "SE",
+    "IsoCode3": "SWE",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "2affb2ba-3969-5ae0-8e01-0c43cc657956",
+    "NameAr": "سويسرا",
+    "NameEn": "Switzerland",
+    "IsoCode": "CH",
+    "IsoCode3": "CHE",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "57da0f6c-c12e-5794-a49f-c39d5f08a335",
+    "NameAr": "سوريا",
+    "NameEn": "Syria",
+    "IsoCode": "SY",
+    "IsoCode3": "SYR",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "4a4e0b83-2768-524c-ba5b-0dbebafdae3c",
+    "NameAr": "تايوان",
+    "NameEn": "Taiwan",
+    "IsoCode": "TW",
+    "IsoCode3": "TWN",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "2c48075b-21ad-5248-ab8c-242e2dcce8a9",
+    "NameAr": "طاجيكستان",
+    "NameEn": "Tajikistan",
+    "IsoCode": "TJ",
+    "IsoCode3": "TJK",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "4c282875-a848-573f-ab5b-a858f42aaede",
+    "NameAr": "تنزانيا",
+    "NameEn": "Tanzania",
+    "IsoCode": "TZ",
+    "IsoCode3": "TZA",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "2203b483-a547-5f41-b976-c887085fa8cb",
+    "NameAr": "تايلاند",
+    "NameEn": "Thailand",
+    "IsoCode": "TH",
+    "IsoCode3": "THA",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "02ed562b-5ddf-55cc-b6ec-b4c328b76622",
+    "NameAr": "تيمور الشرقية",
+    "NameEn": "Timor-Leste",
+    "IsoCode": "TL",
+    "IsoCode3": "TLS",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "117eb045-a3f7-5acf-a649-eff524459132",
+    "NameAr": "توغو",
+    "NameEn": "Togo",
+    "IsoCode": "TG",
+    "IsoCode3": "TGO",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "1386d613-2baf-5711-b62c-1d35422991b6",
+    "NameAr": "تونغا",
+    "NameEn": "Tonga",
+    "IsoCode": "TO",
+    "IsoCode3": "TON",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "0d484d10-e99e-5829-b0cc-04bb649686e1",
+    "NameAr": "ترينيداد وتوباغو",
+    "NameEn": "Trinidad and Tobago",
+    "IsoCode": "TT",
+    "IsoCode3": "TTO",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "b1b61bb6-8c9a-52b4-b1f6-873b14286a27",
+    "NameAr": "تونس",
+    "NameEn": "Tunisia",
+    "IsoCode": "TN",
+    "IsoCode3": "TUN",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "85ea04ec-09c2-5b04-aef5-67fe52e5ffb7",
+    "NameAr": "تركيا",
+    "NameEn": "Turkey",
+    "IsoCode": "TR",
+    "IsoCode3": "TUR",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "4a2a865c-0d25-5794-9226-cf522ad77286",
+    "NameAr": "تركمانستان",
+    "NameEn": "Turkmenistan",
+    "IsoCode": "TM",
+    "IsoCode3": "TKM",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "9f3ab441-9655-59ce-b77b-62b4f3ebe4de",
+    "NameAr": "توفالو",
+    "NameEn": "Tuvalu",
+    "IsoCode": "TV",
+    "IsoCode3": "TUV",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "85613344-f13f-54c8-852a-dd017de3b56b",
+    "NameAr": "أوغندا",
+    "NameEn": "Uganda",
+    "IsoCode": "UG",
+    "IsoCode3": "UGA",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "832884bc-9a69-5a4e-9438-f9c2bd9e8930",
+    "NameAr": "أوكرانيا",
+    "NameEn": "Ukraine",
+    "IsoCode": "UA",
+    "IsoCode3": "UKR",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "acfc25a4-3e32-57f5-b159-c14372a79330",
+    "NameAr": "الإمارات العربية المتحدة",
+    "NameEn": "United Arab Emirates",
+    "IsoCode": "AE",
+    "IsoCode3": "ARE",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "0cd10a0d-1f05-556d-bcf3-9c7f50c9247f",
+    "NameAr": "المملكة المتحدة",
+    "NameEn": "United Kingdom",
+    "IsoCode": "GB",
+    "IsoCode3": "GBR",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "dc8ca2ef-0e01-5a54-b486-fadb36bbb2e6",
+    "NameAr": "الولايات المتحدة الأمريكية",
+    "NameEn": "United States of America",
+    "IsoCode": "US",
+    "IsoCode3": "USA",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "b5eadbdf-761c-5e28-a87f-1be078184c3e",
+    "NameAr": "أوروغواي",
+    "NameEn": "Uruguay",
+    "IsoCode": "UY",
+    "IsoCode3": "URY",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "3c1d8817-f62c-5409-9dbb-55f24a91516b",
+    "NameAr": "أوزبكستان",
+    "NameEn": "Uzbekistan",
+    "IsoCode": "UZ",
+    "IsoCode3": "UZB",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "f67b218c-2200-5bea-ba34-a7beea296ca6",
+    "NameAr": "فانواتو",
+    "NameEn": "Vanuatu",
+    "IsoCode": "VU",
+    "IsoCode3": "VUT",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "514660bd-bc4c-5095-8990-6fe765af60f8",
+    "NameAr": "الفاتيكان",
+    "NameEn": "Vatican City",
+    "IsoCode": "VA",
+    "IsoCode3": "VAT",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "5990ce59-9d49-5f0e-bc4e-b0699883aad5",
+    "NameAr": "فنزويلا",
+    "NameEn": "Venezuela",
+    "IsoCode": "VE",
+    "IsoCode3": "VEN",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "bd2a017e-4235-5a01-9314-4afdba82635b",
+    "NameAr": "فيتنام",
+    "NameEn": "Vietnam",
+    "IsoCode": "VN",
+    "IsoCode3": "VNM",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "9be6f7b0-c958-5d13-90ce-0cfe1f0cb690",
+    "NameAr": "اليمن",
+    "NameEn": "Yemen",
+    "IsoCode": "YE",
+    "IsoCode3": "YEM",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "aceb3b83-040a-5e49-a2f1-2c14d702f0a2",
+    "NameAr": "زامبيا",
+    "NameEn": "Zambia",
+    "IsoCode": "ZM",
+    "IsoCode3": "ZMB",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  },
+  {
+    "Id": "86b52ac3-ef73-57a9-81c1-aff8c935bf6f",
+    "NameAr": "زيمبابوي",
+    "NameEn": "Zimbabwe",
+    "IsoCode": "ZW",
+    "IsoCode3": "ZWE",
+    "IsActive": true,
+    "CreatedAt": "2026-08-06T15:16:56Z"
+  }
+]

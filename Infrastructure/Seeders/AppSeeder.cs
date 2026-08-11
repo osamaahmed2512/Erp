@@ -1,4 +1,5 @@
 ﻿using Domain.Entities;
+using Domain.Interfaces.UnitOfWork;
 using Infrastructure.Contexts;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
@@ -16,9 +17,12 @@ namespace Infrastructure.Seeders
         {
             var roleManager = services.GetRequiredService<RoleManager<IdentityRole<Guid>>>();
             var userManager = services.GetRequiredService<UserManager<ApplicationUser>>();
+            var uow = services.GetRequiredService<IUnitOfWork>();
 
             await RoleSeeder.SeedAsync(roleManager);
             await AdminSeeder.SeedAsync(userManager);
+            await UserPermissionSeeder.SeedAdminPermissionsAsync(userManager);
+            await NationalitySeeder.SeedAsync(uow);
         }
     }
 }

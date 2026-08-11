@@ -31,8 +31,17 @@ namespace Application.UseCases.Employee.Queries.GetById
                                          FirstName = e.User.FirstName,
                                          LastName = e.User.LastName,
                                          Email = e.User.Email,
-                                         PhoneNumber = e.User.PhoneNumber,
-                                     });
+                                         Phone = e.User.PhoneNumber,
+                                         Address=e.Address,
+                                         BirthDate = e.BirthDate,
+                                         Gender = e.Gender,
+                                         MartielStatus=e.MartielStatus,
+                                         nationalityId= e.NationalityId,
+                                         NationalityNumber =e.NationalityNumber,
+                                         Status=e.Status,
+                                         companyId=e.CompanyId,
+                                         
+                                     }, spec);
 
             if (employee is null)
                 return new BaseApiResponse<EmployeeDto>(404, "Employee not found.");

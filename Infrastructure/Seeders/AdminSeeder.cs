@@ -14,7 +14,7 @@ namespace Infrastructure.Seeders
     {
         public static async Task SeedAsync(UserManager<ApplicationUser> userManager)
         {
-            var email = "admin@gmail.com";
+            var email = "admin2512003@gmail.com";
 
             var user = await userManager.FindByEmailAsync(email);
 
@@ -28,9 +28,9 @@ namespace Infrastructure.Seeders
                     EmailConfirmed = true
                 };
 
-                await userManager.CreateAsync(user, "Admin@123");
+                await userManager.CreateAsync(user, "123456");
 
-                await userManager.AddToRoleAsync(user, SystemRoles.Admin.ToString());
+                await userManager.AddToRoleAsync(user, SystemRoles.SuperAdmin.ToString());
             }
         }
     }

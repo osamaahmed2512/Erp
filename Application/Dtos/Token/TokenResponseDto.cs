@@ -13,5 +13,7 @@ namespace Application.Dtos.Token
         public DateTime ExpiresRefreshTokenAt { get; set; }
         public DateTime ExpiresAt { get; set; }
         public IEnumerable<string> Roles { get; set; } = Array.Empty<string>();
+        public DateTime SessionExpiryTime { get; set; }
+        public string? Role { get; set; }
     }
 }

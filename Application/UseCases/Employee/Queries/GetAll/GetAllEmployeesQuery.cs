@@ -13,5 +13,5 @@ using System.Threading.Tasks;
 namespace Application.UseCases.Employee.Queries.GetAll
 {
     public record GetAllEmployeesQuery(PaginationParams Params) :
-        IRequest<BaseApiResponse<PaginationDTO<EmployeeResponse>>>;
+        IRequest<PaginationDTO<EmployeeResponse>>;
 }

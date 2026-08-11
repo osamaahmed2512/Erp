@@ -4,6 +4,7 @@ using Domain.Entities;
 using Domain.Enum;
 using Infrastructure.Contexts;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -42,7 +43,7 @@ namespace Infrastructure.Services
             var appUser = await _userManager.FindByIdAsync(user.Id.ToString());
             return await _userManager.CheckPasswordAsync(appUser, password);
         }
-        public async Task<Guid> CreateUserAsync(string email, string password ,string Role, string firstName, string lastName)
+        public async Task<Guid> CreateUserAsync(string email, string password ,string Role, string firstName, string lastName,string? phone)
         {
             var user = new ApplicationUser
             {
@@ -52,7 +53,10 @@ namespace Infrastructure.Services
                 LastName=lastName,
                 EmailConfirmed=true
             };
-
+            if(phone != null)
+            {
+                user.PhoneNumber = phone;
+            }
             var result = await _userManager.CreateAsync(user, password);
 
             if (!result.Succeeded)
@@ -60,6 +64,50 @@ namespace Infrastructure.Services
 
             await _userManager.AddToRoleAsync(user, Role);
             return user.Id;
+        }
+        public async Task ChangeEmailAsync(Guid userId, string newEmail)
+        {
+            var user = await _userManager.FindByIdAsync(userId.ToString());
+
+            if (user == null)
+                throw new Exception("User not found.");
+
+            user.Email = newEmail;
+            user.UserName = newEmail;
+
+            var result = await _userManager.UpdateAsync(user);
+
+            if (!result.Succeeded)
+                throw new Exception(string.Join(", ", result.Errors.Select(e => e.Description)));
+        }
+        public async Task ChangePasswordAsync(Guid userId, string newPassword)
+        {
+            var user = await _userManager.FindByIdAsync(userId.ToString());
+
+            if (user == null)
+                throw new Exception("User not found.");
+
+            var token = await _userManager.GeneratePasswordResetTokenAsync(user);
+
+            var result = await _userManager.ResetPasswordAsync(user, token, newPassword);
+
+            if (!result.Succeeded)
+                throw new Exception(string.Join(", ", result.Errors.Select(e => e.Description)));
+        }
+        public async Task<AuthUserDto?> FindByPhoneAsync(string phone)
+        {
+            var user = await _userManager.Users
+                .FirstOrDefaultAsync(u => u.PhoneNumber == phone);
+
+            if (user == null)
+                return null;
+
+            return new AuthUserDto
+            {
+                Id = user.Id,
+                Email = user.Email,
+                EmailConfirmed = user.EmailConfirmed
+            };
         }
     }
 }

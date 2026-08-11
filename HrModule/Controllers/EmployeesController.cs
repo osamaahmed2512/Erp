@@ -18,7 +18,7 @@ namespace API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    [Authorize(Roles = "Admin,HR")]
+    [Authorize(Roles = "SuperAdmin,Admin,HR")]
     public class EmployeesController : BaseController
     {
         private readonly IMediator _mediator;
@@ -29,7 +29,7 @@ namespace API.Controllers
         public async Task<IActionResult> GetAll([FromQuery] PaginationParams paginationParams)
         {
             var result = await _mediator.Send(new GetAllEmployeesQuery(paginationParams));
-            return StatusCode(result.StatusCode, result);
+            return Ok(result);
         }
 
 

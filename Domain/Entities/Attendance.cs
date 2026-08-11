@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace Domain.Entities
 {
-    public class Attendance
+    public class Attendance:BaseEntity
     {
-        public Guid Id { get; set; }
-
         public Guid EmployeeId { get; set; }
         public Employee Employee { get; set; }
         public DateTime CheckIn { get; set; }

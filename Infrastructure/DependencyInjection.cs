@@ -13,6 +13,8 @@ using Domain.Interfaces.UnitOfWork;
 using Infrastructure.UnitOfWork;
 using Domain.Entities;
 using Infrastructure.Setting;
+using Application.Interfaces.InternalServices;
+using Domain.Common;
 
 namespace Infrastructure
 {
@@ -65,7 +67,17 @@ namespace Infrastructure
             services.AddScoped<IIdentityService, IdentityService>();
             services.AddScoped<IUnitOfWork, Infrastructure.UnitOfWork.UnitOfWork>();
             services.AddScoped<IEmailService, EmailService>();
-
+            services.AddScoped<ICurrentUserService, CurrentUserService>();
+            services.AddAuthorization(options =>
+            {
+                foreach (var permission in Permissions.GetAll())
+                {
+                    options.AddPolicy(permission, policy =>
+                    {
+                        policy.RequireClaim("permission", permission);
+                    });
+                }
+            });
             return services;
         }
     }

@@ -11,7 +11,8 @@ namespace Domain.Enum
         Admin,
         Owner,
         HR ,
-        Manager ,
-        Employee
+        Manager,
+        Employee,
+        SuperAdmin
     }
 }

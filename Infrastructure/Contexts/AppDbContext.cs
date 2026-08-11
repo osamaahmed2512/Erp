@@ -34,12 +34,41 @@ namespace Infrastructure.Contexts
                 .WithMany() // أو .WithOne(u => u.Employee)
                 .HasForeignKey(e => e.UserId);
 
+            builder.Entity<EmploymentAssignment>()
+                .HasOne(a => a.Employee)
+                .WithMany(e => e.EmploymentAssignments)
+                .HasForeignKey(a => a.EmployeeId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder.Entity<EmploymentAssignment>()
+                .HasOne(a => a.Manager)
+                .WithMany()
+                .HasForeignKey(a => a.ManagerId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder.Entity<EmploymentAssignment>()
+                .HasOne(a => a.Department)
+                .WithMany()
+                .HasForeignKey(a => a.DepartmentId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder.Entity<EmploymentAssignment>()
+                .HasOne(a => a.Position)
+                .WithMany()
+                .HasForeignKey(a => a.PositionId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder.Entity<EmploymentAssignment>()
+                .HasIndex(a => new { a.EmployeeId, a.EffectiveFrom })
+                .IsUnique();
+
         }
 
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Department> Departments { get; set; }
         public DbSet<Position> Positions { get; set; }
         public DbSet<Contract> Contracts { get; set; }
+        public DbSet<EmploymentAssignment> EmploymentAssignments { get; set; }
 
         public DbSet<Attendance> Attendances { get; set; }
 
@@ -50,5 +79,6 @@ namespace Infrastructure.Contexts
         public DbSet<PayrollRun> PayrollRuns { get; set; }
         public DbSet<Payslip> Payslips { get; set; }
         public DbSet<SalaryComponent> SalaryComponents { get; set; }
+        public DbSet<RefreshToken> RefreshToken { get; set; }
     }
 }

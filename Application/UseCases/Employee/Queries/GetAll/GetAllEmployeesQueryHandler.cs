@@ -11,13 +11,13 @@ using MediatR;
 namespace application.usecases.employee.queries.getall
 {
     public class getallemployeesqueryhandler
-        : IRequestHandler<GetAllEmployeesQuery, BaseApiResponse<PaginationDTO<EmployeeResponse>>>
+        : IRequestHandler<GetAllEmployeesQuery, PaginationDTO<EmployeeResponse>>
     {
         private readonly IUnitOfWork _uow;
 
         public getallemployeesqueryhandler(IUnitOfWork uow) => _uow = uow;
 
-        public async Task<BaseApiResponse<PaginationDTO<EmployeeResponse>>> Handle(
+        public async Task<PaginationDTO<EmployeeResponse>> Handle(
             GetAllEmployeesQuery request,
             CancellationToken cancellationToken)
         {
@@ -30,14 +30,19 @@ namespace application.usecases.employee.queries.getall
                                            Id = e.Id,
                                            FirstName = e.User.FirstName,
                                            LastName = e.User.LastName,
-                                           ComapnyName = e.Company.Name
+                                           CompanyId = e.CompanyId,
+                                           ComapnyName = e.Company.Name,
+                                           Email=e.User.Email,
+                                           PhoneNumber=e.User.PhoneNumber,
+                                           NationalityNumber=e.NationalityNumber,
+                                           Status=e.Status.ToString()
                                        },spec);
 
             var totalcount = await _uow.Repository<Domain.Entities.Employee>()
                                        .CountWithSpec(countspec);
 
 
-            var result = new PaginationDTO<EmployeeResponse>
+            return new PaginationDTO<EmployeeResponse>
             {
                 data = employees,
                 TotalCount = totalcount,
@@ -45,12 +50,6 @@ namespace application.usecases.employee.queries.getall
                 PageSize = request.Params.PageSize
             };
 
-            return new BaseApiResponse<PaginationDTO<EmployeeResponse>>
-            {
-                StatusCode = 200,
-                Message = "Employees retrieved successfully.",
-                Data = result
-            };
         }
     }
 }

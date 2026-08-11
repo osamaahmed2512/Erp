@@ -1,4 +1,5 @@
 ﻿using Application.Dtos.Auth;
+using Application.Interfaces.ExternalServices;
 using Application.UseCases.Auth.Commands;
 using Application.UseCases.Auth.Commands.ConfirmEmail;
 using Application.UseCases.Auth.Commands.Login;
@@ -18,10 +19,11 @@ namespace HrModule.Controllers
     public class AuthController : BaseController
     {
         private readonly IMediator _mediator;
-
-        public AuthController(IMediator mediator)
+        private readonly IJwtService _jwtService;
+        public AuthController(IMediator mediator, IJwtService jwtService)
         {
             _mediator = mediator;
+            _jwtService = jwtService;
         }
 
         [HttpPost("login")]
@@ -37,19 +39,26 @@ namespace HrModule.Controllers
 
             return StatusCode(result.StatusCode,result);
         }
-        [HttpGet]
-        [Authorize(Roles ="admin")]
-        public async Task<IActionResult> Test()
-        {
-
-            return Content("test");
-        }
 
         [HttpPost("register")]
         public async Task<IActionResult> RegisterAdminOrOwner(RegisterUserDto dto)
         {
             var result = await _mediator.Send(new RegisterUserCommand(dto));
             return StatusCode(result.StatusCode, result);
+        }
+        [HttpPost("refresh-token")]
+        public async Task<IActionResult> RefreshToken([FromBody] RefreshTokenRequestDto request)
+        {
+            try
+            {
+                var result = await _jwtService.RefreshTokenAsync(request);
+                return Ok(result);
+            }
+            catch (Exception)
+            {
+                // Invalid/expired token or refresh token -> let the client log in again.
+                return Unauthorized(new { message = "Invalid or expired token" });
+            }
         }
         [HttpGet("confirm-email")]
         public async Task<IActionResult> ConfirmEmail([FromQuery] ConfirmEmailCommand command)
@@ -58,7 +67,7 @@ namespace HrModule.Controllers
             return Ok(result);
         }
         [HttpGet("resend-confirm-email")]
-        public async Task<IActionResult> ConfirmEmail([FromQuery] ResendConfirmEmailCommand command )
+        public async Task<IActionResult> ResendConfirmEmail([FromQuery] ResendConfirmEmailCommand command )
         {
             var result = await _mediator.Send(command);
             return Ok(result);

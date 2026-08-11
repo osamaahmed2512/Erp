@@ -11,5 +11,6 @@ namespace Application.Interfaces.ExternalServices
     public interface IJwtService
     {
         Task<TokenResponseDto> GenerateTokenAsync(AuthUserDto user);
+        Task<TokenResponseDto> RefreshTokenAsync(RefreshTokenRequestDto request);
     }
 }

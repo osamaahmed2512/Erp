@@ -7,11 +7,10 @@ using System.Threading.Tasks;
 
 namespace Application.Dtos.Contract
 {
-    public class UpdateContractRequestDo
+    public class UpdateContractDto
     {
         public decimal BasicSalary { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime? EndDate { get; set; }
-        public ContractStatus Status { get; set; }
     }
 }

@@ -4,9 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Entities
+namespace Domain.Enum
 {
-    internal class CreateContractCommand
+    public enum MaritalStatus
     {
+        Single = 1,
+        Married = 2,
+        Divorced = 3,
+        Widowed = 4
     }
 }

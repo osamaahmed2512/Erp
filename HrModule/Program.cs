@@ -35,6 +35,7 @@ namespace HrModule
             });
             app.UseMiddleware<GlobalExceptionHandling>();
             app.UseHttpsRedirection();
+            app.UseCors("AllowAllWithCredentials");
             app.UseAuthentication();
             app.UseAuthorization();
 

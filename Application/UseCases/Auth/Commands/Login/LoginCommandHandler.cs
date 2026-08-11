@@ -25,13 +25,13 @@ namespace Application.UseCases.Auth.Commands.Login
             if (user == null)
                return BaseApiResponse<TokenResponseDto>.Fail(400, "Invalid email or password");
 
-                    if (!user.EmailConfirmed)
-                return BaseApiResponse<TokenResponseDto>.Fail(403, "Please confirm your email first");
             var isPasswordValid = await _identityService.CheckPasswordAsync(user, request.Password);
 
             if (!isPasswordValid)
                return BaseApiResponse<TokenResponseDto>.Fail(400, "Invalid email or password");
 
+            if (!user.EmailConfirmed)
+                return BaseApiResponse<TokenResponseDto>.Fail(403, "Please confirm your email first");
             var token = await _jwtService.GenerateTokenAsync(user);
 
             return new BaseApiResponse<TokenResponseDto>
