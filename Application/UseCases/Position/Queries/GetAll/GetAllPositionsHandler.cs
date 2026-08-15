@@ -27,7 +27,9 @@ namespace Application.UseCases.Position.Queries.GetAll
                     Id = p.Id,
                     Title = p.Title,
                     Description = p.Description,
-                    CompanyName = p.Company.Name,
+                    DepartmentId = p.DepartmentId,
+                    DepartmentName = p.Department.Name,
+                    CompanyName = p.Department.Company.Name,
                     Status = p.Status.ToString(),
                     TotalEmployees = 0
                 }, spec);

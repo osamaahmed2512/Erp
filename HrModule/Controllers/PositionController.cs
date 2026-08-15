@@ -20,15 +20,20 @@ namespace HrModule.Controllers
         private readonly IMediator _mediator;
         public PositionController(IMediator mediator) { _mediator = mediator; }
 
-        [Authorize(Roles = "Admin,Owner")]
+        [Authorize(Roles = "SuperAdmin,Admin,HR,Owner")]
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] CreatePositionDto dto)
         {
-            var result = await _mediator.Send(new CreatePositionCommand { Dto = dto, OwnerId = UserId.Value });
+            var result = await _mediator.Send(new CreatePositionCommand
+            {
+                Dto = dto,
+                OwnerId = UserId.Value,
+                HasGlobalAccess = IsSuperAdmin || IsAdmin || IsHr
+            });
             return StatusCode(result.StatusCode, result);
         }
 
-        [Authorize(Roles = "Admin,Owner")]
+        [Authorize(Roles = "SuperAdmin,Admin,HR,Owner")]
         [HttpPut("{id:guid}")]
         public async Task<IActionResult> Update(Guid id, [FromBody] UpdatePositionDto dto)
         {
@@ -37,7 +42,7 @@ namespace HrModule.Controllers
                 PositionId = id,
                 Dto = dto,
                 OwnerId = UserId.Value,
-                IsAdmin = IsAdmin
+                IsAdmin = IsSuperAdmin || IsAdmin || IsHr
             });
             return StatusCode(result.StatusCode, result);
         }
@@ -50,7 +55,7 @@ namespace HrModule.Controllers
             return StatusCode(result.StatusCode, result);
         }
 
-        [Authorize(Roles = "Admin,Owner")]
+        [Authorize(Roles = "SuperAdmin,Admin,HR,Owner")]
         [HttpGet("{id:guid}")]
         public async Task<IActionResult> GetById(Guid id)
         {
@@ -58,12 +63,12 @@ namespace HrModule.Controllers
             {
                 Id = id,
                 OwnerId = UserId.Value,
-                IsAdmin = IsAdmin
+                IsAdmin = IsSuperAdmin || IsAdmin || IsHr
             });
             return StatusCode(result.StatusCode, result);
         }
 
-        [Authorize(Roles = "Admin,Owner")]
+        [Authorize(Roles = "SuperAdmin,Admin,HR,Owner")]
         [HttpGet]
         public async Task<IActionResult> GetAll([FromQuery] PositionPaginationParams paginationParams)
         {
@@ -71,7 +76,7 @@ namespace HrModule.Controllers
             return Ok(result);
         }
 
-        [Authorize(Roles = "Admin,Owner")]
+        [Authorize(Roles = "SuperAdmin,Admin,HR,Owner")]
         [HttpGet("{id:guid}/status")]
         public async Task<IActionResult> ChangeStatus(Guid id, [FromQuery] string status)
         {
@@ -80,16 +85,16 @@ namespace HrModule.Controllers
                 Id = id,
                 Status = status,
                 OwnerId = UserId.Value,
-                IsAdmin = IsAdmin
+                IsAdmin = IsSuperAdmin || IsAdmin || IsHr
             });
             return StatusCode(result.StatusCode, result);
         }
 
         [Authorize(Roles = "SuperAdmin,Admin,HR,Owner")]
         [HttpGet("dropdown")]
-        public async Task<IActionResult> DropDown([FromQuery] Guid? companyId)
+        public async Task<IActionResult> DropDown([FromQuery] Guid? departmentId)
         {
-            var result = await _mediator.Send(new GetPositionDropDownQuery { CompanyId = companyId });
+            var result = await _mediator.Send(new GetPositionDropDownQuery { DepartmentId = departmentId });
             return Ok(result);
         }
     }

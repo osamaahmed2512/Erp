@@ -15,6 +15,8 @@ namespace Domain.Entities
         [MaxLength(1)]
         public Gender Gender { get; set; }
         public Guid CompanyId { get; set; }
+        [MaxLength(260)]
+        public string? ProfilePhoto { get; set; }
 
         public bool IsDeleted { get; set; } = false;
         [MaxLength(2)]

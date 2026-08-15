@@ -6,11 +6,25 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class AddEmploymentAssignments : Migration
+    public partial class AddEmploymentAssignmentsAndLinkPositionsToDepartments : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropForeignKey(
+                name: "FK_Positions_Company_CompanyId",
+                table: "Positions");
+
+            migrationBuilder.RenameColumn(
+                name: "CompanyId",
+                table: "Positions",
+                newName: "DepartmentId");
+
+            migrationBuilder.RenameIndex(
+                name: "IX_Positions_CompanyId",
+                table: "Positions",
+                newName: "IX_Positions_DepartmentId");
+
             migrationBuilder.CreateTable(
                 name: "EmploymentAssignments",
                 columns: table => new
@@ -74,13 +88,43 @@ namespace Infrastructure.Migrations
                 name: "IX_EmploymentAssignments_PositionId",
                 table: "EmploymentAssignments",
                 column: "PositionId");
+
+            migrationBuilder.AddForeignKey(
+                name: "FK_Positions_Departments_DepartmentId",
+                table: "Positions",
+                column: "DepartmentId",
+                principalTable: "Departments",
+                principalColumn: "Id",
+                onDelete: ReferentialAction.Restrict);
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropForeignKey(
+                name: "FK_Positions_Departments_DepartmentId",
+                table: "Positions");
+
             migrationBuilder.DropTable(
                 name: "EmploymentAssignments");
+
+            migrationBuilder.RenameColumn(
+                name: "DepartmentId",
+                table: "Positions",
+                newName: "CompanyId");
+
+            migrationBuilder.RenameIndex(
+                name: "IX_Positions_DepartmentId",
+                table: "Positions",
+                newName: "IX_Positions_CompanyId");
+
+            migrationBuilder.AddForeignKey(
+                name: "FK_Positions_Company_CompanyId",
+                table: "Positions",
+                column: "CompanyId",
+                principalTable: "Company",
+                principalColumn: "Id",
+                onDelete: ReferentialAction.Cascade);
         }
     }
 }

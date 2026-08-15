@@ -10,6 +10,6 @@ namespace Application.UseCases.Position.Queries.GetDropDown
 {
     public class GetPositionDropDownQuery : IRequest<List<DropDownDto>>
     {
-        public Guid? CompanyId { get; set; }
+        public Guid? DepartmentId { get; set; }
     }
 }

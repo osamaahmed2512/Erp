@@ -1,5 +1,6 @@
 using Application.Dtos.EmploymentAssignment;
 using Application.UseCases.EmploymentAssignments.Commands.Create;
+using Application.UseCases.EmploymentAssignments.Commands.UpdateManager;
 using Application.UseCases.EmploymentAssignments.Queries.GetCurrent;
 using Application.UseCases.EmploymentAssignments.Queries.GetHistory;
 using MediatR;
@@ -55,6 +56,24 @@ namespace HrModule.Controllers
             {
                 EmployeeId = employeeId,
                 EffectiveDate = effectiveDate ?? DateOnly.FromDateTime(DateTime.UtcNow),
+                CurrentUserId = UserId!.Value,
+                HasGlobalAccess = IsSuperAdmin || IsAdmin || IsHr
+            });
+
+            return StatusCode(result.StatusCode, result);
+        }
+
+        [HttpPatch("{assignmentId:guid}/manager")]
+        public async Task<IActionResult> UpdateManager(
+            Guid employeeId,
+            Guid assignmentId,
+            [FromBody] UpdateEmploymentAssignmentManagerDto dto)
+        {
+            var result = await _mediator.Send(new UpdateEmploymentAssignmentManagerCommand
+            {
+                EmployeeId = employeeId,
+                AssignmentId = assignmentId,
+                ManagerId = dto.ManagerId,
                 CurrentUserId = UserId!.Value,
                 HasGlobalAccess = IsSuperAdmin || IsAdmin || IsHr
             });

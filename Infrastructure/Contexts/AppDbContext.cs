@@ -58,6 +58,12 @@ namespace Infrastructure.Contexts
                 .HasForeignKey(a => a.PositionId)
                 .OnDelete(DeleteBehavior.Restrict);
 
+            builder.Entity<Position>()
+                .HasOne(p => p.Department)
+                .WithMany(d => d.Positions)
+                .HasForeignKey(p => p.DepartmentId)
+                .OnDelete(DeleteBehavior.Restrict);
+
             builder.Entity<EmploymentAssignment>()
                 .HasIndex(a => new { a.EmployeeId, a.EffectiveFrom })
                 .IsUnique();

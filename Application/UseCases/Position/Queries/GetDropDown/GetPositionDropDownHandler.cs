@@ -20,7 +20,7 @@ namespace Application.UseCases.Position.Queries.GetDropDown
         {
             var parms = new PositionPaginationParams
             {
-                CompanyId = request.CompanyId,
+                DepartmentId = request.DepartmentId,
                 PageIndex = 1,
                 PageSize = int.MaxValue
             };

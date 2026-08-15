@@ -6,6 +6,7 @@ using Application.Dtos.Employee;
 using Application.UseCases.Employee.Commands.Create;
 using Application.UseCases.Employee.Commands.Delete;
 using Application.UseCases.Employee.Commands.Update;
+using Application.UseCases.Employee.Commands.UploadProfilePhoto;
 using Application.UseCases.Employee.Queries.GetAll;
 using Application.UseCases.Employee.Queries.GetById;
 using Domain.Specification.Params;
@@ -51,6 +52,17 @@ namespace API.Controllers
         public async Task<IActionResult> Update(Guid id, [FromBody] UpdateEmployeeRequest request)
         {
             var result = await _mediator.Send(new UpdateEmployeeCommand(id, request));
+            return StatusCode(result.StatusCode, result);
+        }
+
+        [HttpPost("{id:guid}/profile-photo")]
+        public async Task<IActionResult> UploadProfilePhoto(Guid id, IFormFile photo)
+        {
+            var result = await _mediator.Send(new UploadEmployeeProfilePhotoCommand
+            {
+                EmployeeId = id,
+                Photo = photo
+            });
             return StatusCode(result.StatusCode, result);
         }
 

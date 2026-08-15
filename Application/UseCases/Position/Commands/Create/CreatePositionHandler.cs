@@ -1,6 +1,5 @@
 ﻿using Application.Dtos.Response;
 using Domain.Interfaces.UnitOfWork;
-using Domain.Specification.Company;
 using Domain.Specification.Position;
 using MediatR;
 using System;
@@ -20,30 +19,29 @@ namespace Application.UseCases.Position.Commands.Create
         {
             var dto = request.Dto;
             var title = dto.Title.Trim();
-            var companySpec = new CompanySpecification(dto.CompanyId);
-            var company = await _uow.Repository<Domain.Entities.Company>().GetSingleProjectedAsync(c => new
-            {
-                c.OwnerId
-            }, companySpec);
+            var department = await _uow.Repository<Domain.Entities.Department>().GetByIdAsync(dto.DepartmentId);
+            if (department is null || department.Status == Domain.Enum.EntityStatus.Deleted)
+                return BaseApiResponse.Fail(404, "Department not found.");
 
+            var company = await _uow.Repository<Domain.Entities.Company>().GetByIdAsync(department.CompanyId);
             if (company is null)
-                return BaseApiResponse.Fail(404, "Company not found.");
+                return BaseApiResponse.Fail(404, "Department company not found.");
 
-            if (company.OwnerId != request.OwnerId)
-                return BaseApiResponse.Fail(403, "You are not allowed to add positions to this company.");
+            if (!request.HasGlobalAccess && company.OwnerId != request.OwnerId)
+                return BaseApiResponse.Fail(403, "You are not allowed to add positions to this department.");
 
-            var spec = new PositionSpecification(title, dto.CompanyId);
+            var spec = new PositionSpecification(title, department.Id);
             var exists = await _uow.Repository<Domain.Entities.Position>()
                 .GetSingleProjectedAsync(x => new { x.Id }, spec);
 
             if (exists is not null)
-                return BaseApiResponse.Fail(400, "A position with this title already exists in the company.");
+                return BaseApiResponse.Fail(400, "A position with this title already exists in the department.");
 
             var position = new Domain.Entities.Position
             {
                 Title = title,
                 Description = dto.Description?.Trim(),
-                CompanyId = dto.CompanyId,
+                DepartmentId = department.Id,
                 CreatedAt = DateTime.UtcNow
             };
 

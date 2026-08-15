@@ -22,24 +22,28 @@ namespace Application.UseCases.Position.Commands.Update
             if (position is null || position.Status == Domain.Enum.EntityStatus.Deleted)
                 return BaseApiResponse.Fail(404, "Position not found.");
 
-            var companySpec = new CompanySpecification(position.CompanyId);
-            var company = await _uow.Repository<Domain.Entities.Company>().GetSingleProjectedAsync(c => new
-            {
-                c.OwnerId
-            }, companySpec);
-            if (!request.IsAdmin && company!.OwnerId != request.OwnerId)
+            var department = await _uow.Repository<Domain.Entities.Department>().GetByIdAsync(request.Dto.DepartmentId);
+            if (department is null || department.Status == Domain.Enum.EntityStatus.Deleted)
+                return BaseApiResponse.Fail(404, "Department not found.");
+
+            var company = await _uow.Repository<Domain.Entities.Company>().GetByIdAsync(department.CompanyId);
+            if (company is null)
+                return BaseApiResponse.Fail(404, "Department company not found.");
+
+            if (!request.IsAdmin && company.OwnerId != request.OwnerId)
                 return BaseApiResponse.Fail(403, "You are not allowed to update this position.");
 
             var title = request.Dto.Title.Trim();
-            var spec = new PositionSpecification(title, position.CompanyId, position.Id);
+            var spec = new PositionSpecification(title, department.Id, position.Id);
             var exists = await _uow.Repository<Domain.Entities.Position>()
                 .GetSingleProjectedAsync(x => new { x.Id }, spec);
 
             if (exists is not null)
-                return BaseApiResponse.Fail(400, "A position with this title already exists in the company.");
+                return BaseApiResponse.Fail(400, "A position with this title already exists in the department.");
 
             position.Title = title;
             position.Description = request.Dto.Description?.Trim();
+            position.DepartmentId = department.Id;
             position.UpdatedAt = DateTime.UtcNow;
 
             await _uow.SaveChangeAsync(cancellationToken);

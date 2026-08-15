@@ -8,7 +8,7 @@ namespace Domain.Entities
         public string Title { get; set; }
         public string? Description { get; set; }
         public EntityStatus Status { get; set; } = EntityStatus.Active;
-        public Guid CompanyId { get; set; }
-        public Company Company { get; set; }
+        public Guid DepartmentId { get; set; }
+        public Department Department { get; set; } = null!;
     }
 }

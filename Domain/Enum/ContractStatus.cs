@@ -8,9 +8,11 @@ namespace Domain.Enum
 {
     public enum ContractStatus
     {
-        Pending,
-        Active,
-        Expired,
-        Terminated
+        Draft = 1,
+        PendingApproval = 2,
+        Active = 3,
+        Expired = 4,
+        Terminated = 5,
+        Cancelled = 6
     }
 }

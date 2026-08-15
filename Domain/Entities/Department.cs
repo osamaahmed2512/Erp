@@ -14,5 +14,6 @@ namespace Domain.Entities
         public EntityStatus Status { get; set; } = EntityStatus.Active;
         public Guid CompanyId { get; set; }
         public Company Company { get; set; }
+        public ICollection<Position> Positions { get; set; } = [];
     }
 }

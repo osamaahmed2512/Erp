@@ -40,6 +40,7 @@ namespace Application.UseCases.Employee.Queries.GetById
                                          NationalityNumber =e.NationalityNumber,
                                          Status=e.Status,
                                          companyId=e.CompanyId,
+                                         ProfilePhoto = e.ProfilePhoto,
                                          
                                      }, spec);
 

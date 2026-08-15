@@ -17,7 +17,11 @@ namespace Application.UseCases.Position.Commands.Status
             if (position is null || position.Status == Domain.Enum.EntityStatus.Deleted)
                 return BaseApiResponse.Fail(404, "Position not found.");
 
-            var companySpec = new CompanySpecification(position.CompanyId);
+            var department = await _uow.Repository<Domain.Entities.Department>().GetByIdAsync(position.DepartmentId);
+            if (department is null)
+                return BaseApiResponse.Fail(404, "Position department not found.");
+
+            var companySpec = new CompanySpecification(department.CompanyId);
             var company = await _uow.Repository<Domain.Entities.Company>().GetSingleProjectedAsync(c => new
             {
                 c.OwnerId

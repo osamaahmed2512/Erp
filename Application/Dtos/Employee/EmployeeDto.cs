@@ -22,5 +22,6 @@ namespace Application.Dtos.Employee
         public DateOnly BirthDate { get; set; }
         public Gender Gender { get; set; }
         public Guid companyId { get; set; }
+        public string? ProfilePhoto { get; set; }
     }
 }

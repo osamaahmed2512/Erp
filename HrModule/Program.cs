@@ -3,6 +3,7 @@ using HrModule.Extensions;
 using HrModule.Filters;
 using HrModule.Middlewares;
 using Infrastructure.Seeders;
+using Microsoft.Extensions.FileProviders;
 
 namespace HrModule
 {
@@ -35,6 +36,13 @@ namespace HrModule
             });
             app.UseMiddleware<GlobalExceptionHandling>();
             app.UseHttpsRedirection();
+            var pictureRoot = Path.Combine(app.Environment.ContentRootPath, "..", "Pic");
+            Directory.CreateDirectory(pictureRoot);
+            app.UseStaticFiles(new StaticFileOptions
+            {
+                FileProvider = new PhysicalFileProvider(pictureRoot),
+                RequestPath = "/pic"
+            });
             app.UseCors("AllowAllWithCredentials");
             app.UseAuthentication();
             app.UseAuthorization();

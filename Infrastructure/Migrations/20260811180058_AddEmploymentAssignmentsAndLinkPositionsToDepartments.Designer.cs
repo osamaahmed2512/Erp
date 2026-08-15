@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20260811162233_AddEmploymentAssignments")]
-    partial class AddEmploymentAssignments
+    [Migration("20260811180058_AddEmploymentAssignmentsAndLinkPositionsToDepartments")]
+    partial class AddEmploymentAssignmentsAndLinkPositionsToDepartments
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -562,11 +562,11 @@ namespace Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("CompanyId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
+
+                    b.Property<Guid>("DepartmentId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
@@ -583,7 +583,7 @@ namespace Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CompanyId");
+                    b.HasIndex("DepartmentId");
 
                     b.ToTable("Positions");
                 });
@@ -934,13 +934,13 @@ namespace Infrastructure.Migrations
 
             modelBuilder.Entity("Domain.Entities.Position", b =>
                 {
-                    b.HasOne("Domain.Entities.Company", "Company")
-                        .WithMany()
-                        .HasForeignKey("CompanyId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                    b.HasOne("Domain.Entities.Department", "Department")
+                        .WithMany("Positions")
+                        .HasForeignKey("DepartmentId")
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.Navigation("Company");
+                    b.Navigation("Department");
                 });
 
             modelBuilder.Entity("Domain.Entities.SalaryComponent", b =>
@@ -1013,6 +1013,11 @@ namespace Infrastructure.Migrations
             modelBuilder.Entity("Domain.Entities.Company", b =>
                 {
                     b.Navigation("Employees");
+                });
+
+            modelBuilder.Entity("Domain.Entities.Department", b =>
+                {
+                    b.Navigation("Positions");
                 });
 
             modelBuilder.Entity("Domain.Entities.Employee", b =>

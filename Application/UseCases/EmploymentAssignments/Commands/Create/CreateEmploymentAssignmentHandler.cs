@@ -45,8 +45,11 @@ namespace Application.UseCases.EmploymentAssignments.Commands.Create
             if (position is null || position.Status == EntityStatus.Deleted)
                 return BaseApiResponse<EmploymentAssignmentDto>.Fail(404, "Position not found.");
 
-            if (position.CompanyId != employee.CompanyId)
-                return BaseApiResponse<EmploymentAssignmentDto>.Fail(400, "Position must belong to the employee's company.");
+            if (position.Status != EntityStatus.Active)
+                return BaseApiResponse<EmploymentAssignmentDto>.Fail(400, "Position must be active.");
+
+            if (position.DepartmentId != department.Id)
+                return BaseApiResponse<EmploymentAssignmentDto>.Fail(400, "Position must belong to the selected department.");
 
             Domain.Entities.Employee? manager = null;
             if (request.Dto.ManagerId.HasValue)
@@ -58,6 +61,9 @@ namespace Application.UseCases.EmploymentAssignments.Commands.Create
                     .GetByIdSpecAsync(new EmployeeSpecification(request.Dto.ManagerId.Value));
                 if (manager is null || manager.IsDeleted)
                     return BaseApiResponse<EmploymentAssignmentDto>.Fail(404, "Manager not found.");
+
+                if (manager.Status != EmployeeStatus.Active)
+                    return BaseApiResponse<EmploymentAssignmentDto>.Fail(400, "Manager must be active.");
 
                 if (manager.CompanyId != employee.CompanyId)
                     return BaseApiResponse<EmploymentAssignmentDto>.Fail(400, "Manager must belong to the employee's company.");

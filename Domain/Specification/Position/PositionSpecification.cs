@@ -14,12 +14,12 @@ namespace Domain.Specification.Position
         public PositionSpecification(Guid id)
             : base(x => x.Id == id) { }
 
-        public PositionSpecification(string title, Guid companyId)
-            : base(x => x.Title.ToLower() == title.ToLower().Trim() && x.CompanyId == companyId) { }
+        public PositionSpecification(string title, Guid departmentId)
+            : base(x => x.Title.ToLower() == title.ToLower().Trim() && x.DepartmentId == departmentId) { }
 
-        public PositionSpecification(string title, Guid companyId, Guid excludeId)
+        public PositionSpecification(string title, Guid departmentId, Guid excludeId)
             : base(x => x.Title.ToLower() == title.ToLower().Trim()
-                     && x.CompanyId == companyId
+                     && x.DepartmentId == departmentId
                      && x.Id != excludeId)
         { }
 
@@ -37,7 +37,10 @@ namespace Domain.Specification.Position
             }
 
             if (parms.CompanyId.HasValue && parms.CompanyId != Guid.Empty)
-                criteria = criteria.AndAlso(p => p.CompanyId == parms.CompanyId.Value);
+                criteria = criteria.AndAlso(p => p.Department.CompanyId == parms.CompanyId.Value);
+
+            if (parms.DepartmentId.HasValue && parms.DepartmentId != Guid.Empty)
+                criteria = criteria.AndAlso(p => p.DepartmentId == parms.DepartmentId.Value);
 
             AddCriteria(criteria);
             AddOrderByDescending(p => p.CreatedAt);

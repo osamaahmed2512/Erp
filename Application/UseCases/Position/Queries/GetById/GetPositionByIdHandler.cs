@@ -21,7 +21,14 @@ namespace Application.UseCases.Position.Queries.GetById
             if (position is null || position.Status == Domain.Enum.EntityStatus.Deleted)
                 return BaseApiResponse<PositionDetailsDto>.Fail(404, "Position not found.");
 
-            var company = await _uow.Repository<Domain.Entities.Company>().GetByIdAsync(position.CompanyId);
+            var department = await _uow.Repository<Domain.Entities.Department>().GetByIdAsync(position.DepartmentId);
+            if (department is null)
+                return BaseApiResponse<PositionDetailsDto>.Fail(404, "Position department not found.");
+
+            var company = await _uow.Repository<Domain.Entities.Company>().GetByIdAsync(department.CompanyId);
+            if (company is null)
+                return BaseApiResponse<PositionDetailsDto>.Fail(404, "Department company not found.");
+
             if (!request.IsAdmin && company.OwnerId != request.OwnerId)
                 return BaseApiResponse<PositionDetailsDto>.Fail(403, "You are not allowed to access this position.");
 
@@ -30,7 +37,9 @@ namespace Application.UseCases.Position.Queries.GetById
                 Id = position.Id,
                 Title = position.Title,
                 Description = position.Description,
-                CompanyId = position.CompanyId,
+                DepartmentId = position.DepartmentId,
+                DepartmentName = department.Name,
+                CompanyId = department.CompanyId,
                 CompanyName = company.Name,
                 Status = position.Status.ToString(),
                 TotalEmployees = 0,

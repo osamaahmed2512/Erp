@@ -5,6 +5,7 @@ namespace Domain.Entities
         public Guid EmployeeId { get; set; }
         public Employee Employee { get; set; } = null!;
 
+        public Guid WorkingScheduleId { get; set; }
         public Guid DepartmentId { get; set; }
         public Department Department { get; set; } = null!;
 
