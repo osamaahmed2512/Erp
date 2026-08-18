@@ -21,5 +21,6 @@ namespace Domain.Entities
         public Guid OwnerId { get; set; }
         public ApplicationUser Owner { get; set; }
         public ICollection<Employee> Employees { get; set; }
+        public ICollection<WorkingSchedule> WorkingSchedules { get; set; } = [];
     }
 }

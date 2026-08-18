@@ -4,6 +4,7 @@ using Infrastructure.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260815182914_AddWorkingSchedules")]
+    partial class AddWorkingSchedules
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -153,7 +156,7 @@ namespace Infrastructure.Migrations
 
                     b.HasIndex("EmployeeId");
 
-                    b.ToTable("Attendances", (string)null);
+                    b.ToTable("Attendances");
                 });
 
             modelBuilder.Entity("Domain.Entities.Company", b =>
@@ -217,7 +220,7 @@ namespace Infrastructure.Migrations
 
                     b.HasIndex("OwnerId");
 
-                    b.ToTable("Company", (string)null);
+                    b.ToTable("Company");
                 });
 
             modelBuilder.Entity("Domain.Entities.Contract", b =>
@@ -261,7 +264,7 @@ namespace Infrastructure.Migrations
 
                     b.HasIndex("EmployeeId");
 
-                    b.ToTable("Contracts", (string)null);
+                    b.ToTable("Contracts");
                 });
 
             modelBuilder.Entity("Domain.Entities.Department", b =>
@@ -293,7 +296,7 @@ namespace Infrastructure.Migrations
 
                     b.HasIndex("CompanyId");
 
-                    b.ToTable("Departments", (string)null);
+                    b.ToTable("Departments");
                 });
 
             modelBuilder.Entity("Domain.Entities.Employee", b =>
@@ -362,7 +365,7 @@ namespace Infrastructure.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Employees", (string)null);
+                    b.ToTable("Employees");
                 });
 
             modelBuilder.Entity("Domain.Entities.EmploymentAssignment", b =>
@@ -411,7 +414,7 @@ namespace Infrastructure.Migrations
                     b.HasIndex("EmployeeId", "EffectiveFrom")
                         .IsUnique();
 
-                    b.ToTable("EmploymentAssignments", (string)null);
+                    b.ToTable("EmploymentAssignments");
                 });
 
             modelBuilder.Entity("Domain.Entities.LeaveBalance", b =>
@@ -441,7 +444,7 @@ namespace Infrastructure.Migrations
 
                     b.HasIndex("LeaveTypeId");
 
-                    b.ToTable("LeaveBalances", (string)null);
+                    b.ToTable("LeaveBalances");
                 });
 
             modelBuilder.Entity("Domain.Entities.LeaveRequest", b =>
@@ -476,7 +479,7 @@ namespace Infrastructure.Migrations
 
                     b.HasIndex("LeaveTypeId");
 
-                    b.ToTable("LeaveRequests", (string)null);
+                    b.ToTable("LeaveRequests");
                 });
 
             modelBuilder.Entity("Domain.Entities.LeaveType", b =>
@@ -494,7 +497,7 @@ namespace Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("LeaveTypes", (string)null);
+                    b.ToTable("LeaveTypes");
                 });
 
             modelBuilder.Entity("Domain.Entities.Nationality", b =>
@@ -528,7 +531,7 @@ namespace Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Nationality", (string)null);
+                    b.ToTable("Nationality");
                 });
 
             modelBuilder.Entity("Domain.Entities.PayrollRun", b =>
@@ -548,7 +551,7 @@ namespace Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("PayrollRuns", (string)null);
+                    b.ToTable("PayrollRuns");
                 });
 
             modelBuilder.Entity("Domain.Entities.Payslip", b =>
@@ -581,7 +584,7 @@ namespace Infrastructure.Migrations
 
                     b.HasIndex("PayrollRunId");
 
-                    b.ToTable("Payslips", (string)null);
+                    b.ToTable("Payslips");
                 });
 
             modelBuilder.Entity("Domain.Entities.Position", b =>
@@ -613,7 +616,7 @@ namespace Infrastructure.Migrations
 
                     b.HasIndex("DepartmentId");
 
-                    b.ToTable("Positions", (string)null);
+                    b.ToTable("Positions");
                 });
 
             modelBuilder.Entity("Domain.Entities.RefreshToken", b =>
@@ -632,7 +635,7 @@ namespace Infrastructure.Migrations
 
                     b.HasKey("Token");
 
-                    b.ToTable("RefreshToken", (string)null);
+                    b.ToTable("RefreshToken");
                 });
 
             modelBuilder.Entity("Domain.Entities.SalaryComponent", b =>
@@ -658,7 +661,7 @@ namespace Infrastructure.Migrations
 
                     b.HasIndex("PayslipId");
 
-                    b.ToTable("SalaryComponents", (string)null);
+                    b.ToTable("SalaryComponents");
                 });
 
             modelBuilder.Entity("Domain.Entities.WorkingSchedule", b =>
@@ -694,7 +697,7 @@ namespace Infrastructure.Migrations
                     b.HasIndex("CompanyId", "Name")
                         .IsUnique();
 
-                    b.ToTable("WorkingSchedules", (string)null);
+                    b.ToTable("WorkingSchedules");
                 });
 
             modelBuilder.Entity("Domain.Entities.WorkingScheduleDay", b =>
@@ -732,7 +735,7 @@ namespace Infrastructure.Migrations
                     b.HasIndex("WorkingScheduleId", "DayOfWeek")
                         .IsUnique();
 
-                    b.ToTable("WorkingScheduleDays", (string)null);
+                    b.ToTable("WorkingScheduleDays");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole<System.Guid>", b =>

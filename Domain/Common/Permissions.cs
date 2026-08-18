@@ -26,6 +26,12 @@ namespace Domain.Common
         public const string Departement_ViewAll = "Departement.ViewAll";
         
         public const string Nationaality_ViewAll = "Nationaality.ViewAll";
+
+        public const string WorkingSchedules_View = "WorkingSchedules.View";
+        public const string WorkingSchedules_ViewAll = "WorkingSchedules.ViewAll";
+        public const string WorkingSchedules_Add = "WorkingSchedules.Add";
+        public const string WorkingSchedules_Edit = "WorkingSchedules.Edit";
+        public const string WorkingSchedules_Delete = "WorkingSchedules.Delete";
         public static List<string> GetAll()
         {
             return typeof(Permissions)

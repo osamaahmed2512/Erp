@@ -37,7 +37,7 @@ namespace Application.UseCases.Attendance.Queries.GetById
                 EmployeeName = employee.User.FirstName + " " + employee.User.LastName,
                 CheckIn = attendance.CheckIn,
                 CheckOut = attendance.CheckOut,
-                WorkedHours = attendance.WorkedHours,
+                WorkedHours = attendance.WorkedHours ?? 0,
                 OvertimeHours = attendance.OvertimeHours,
                 CreatedAt = attendance.CreatedAt,
                 UpdatedAt = attendance.UpdatedAt

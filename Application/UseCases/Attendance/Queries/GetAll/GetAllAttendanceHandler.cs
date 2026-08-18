@@ -28,7 +28,7 @@ namespace Application.UseCases.Attendance.Queries.GetAll
                     EmployeeName = a.Employee.User.FirstName + " " + a.Employee.User.LastName,
                     CheckIn = a.CheckIn,
                     CheckOut = a.CheckOut,
-                    WorkedHours = a.WorkedHours,
+                    WorkedHours = a.WorkedHours ?? 0,
                     OvertimeHours = a.OvertimeHours
                 }, spec);
 

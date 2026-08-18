@@ -58,6 +58,32 @@ namespace Infrastructure.Contexts
                 .HasForeignKey(a => a.PositionId)
                 .OnDelete(DeleteBehavior.Restrict);
 
+            builder.Entity<WorkingSchedule>()
+                .HasOne(s => s.Company)
+                .WithMany(c => c.WorkingSchedules)
+                .HasForeignKey(s => s.CompanyId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder.Entity<WorkingSchedule>()
+                .HasIndex(s => new { s.CompanyId, s.Name })
+                .IsUnique();
+
+            builder.Entity<WorkingScheduleDay>()
+                .HasOne(d => d.WorkingSchedule)
+                .WithMany(s => s.Days)
+                .HasForeignKey(d => d.WorkingScheduleId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            builder.Entity<WorkingScheduleDay>()
+                .HasIndex(d => new { d.WorkingScheduleId, d.DayOfWeek })
+                .IsUnique();
+
+            builder.Entity<EmploymentAssignment>()
+                .HasOne(a => a.WorkingSchedule)
+                .WithMany()
+                .HasForeignKey(a => a.WorkingScheduleId)
+                .OnDelete(DeleteBehavior.Restrict);
+
             builder.Entity<Position>()
                 .HasOne(p => p.Department)
                 .WithMany(d => d.Positions)
@@ -75,6 +101,8 @@ namespace Infrastructure.Contexts
         public DbSet<Position> Positions { get; set; }
         public DbSet<Contract> Contracts { get; set; }
         public DbSet<EmploymentAssignment> EmploymentAssignments { get; set; }
+        public DbSet<WorkingSchedule> WorkingSchedules { get; set; }
+        public DbSet<WorkingScheduleDay> WorkingScheduleDays { get; set; }
 
         public DbSet<Attendance> Attendances { get; set; }
 

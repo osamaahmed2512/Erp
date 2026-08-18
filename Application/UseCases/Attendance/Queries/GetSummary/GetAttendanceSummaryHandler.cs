@@ -56,7 +56,7 @@ namespace Application.UseCases.Attendance.Queries.GetSummary
                 EmployeeId = employee.Id,
                 EmployeeName = employee.User.FirstName + " " + employee.User.LastName,
                 TotalDays = completedRecords.Count,
-                TotalWorkedHours = Math.Round(completedRecords.Sum(r => r.WorkedHours), 2),
+                TotalWorkedHours = Math.Round(completedRecords.Sum(r => r.WorkedHours) ?? 0, 2),
                 TotalOvertimeHours = Math.Round(completedRecords.Sum(r => r.OvertimeHours), 2),
                 Month = request.Month,
                 Year = request.Year
