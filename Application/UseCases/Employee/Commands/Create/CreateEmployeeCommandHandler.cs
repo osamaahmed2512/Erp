@@ -47,10 +47,12 @@ namespace Application.UseCases.Employee.Commands.Create
             var userId = await _identityService.CreateUserAsync(
                 email: dto.Email,
                 password: dto.Password,
-                Role: SystemRoles.Employee.ToString(),
+                role: SystemRoles.Employee.ToString(),
                 firstName: dto.FirstName,
                 lastName: dto.LastName,
-                phone:dto.phone
+                phone: dto.phone,
+                accountType: AccountType.Company,
+                companyId: request.CompanyId
             );
 
             var employee = new Domain.Entities.Employee
@@ -68,7 +70,29 @@ namespace Application.UseCases.Employee.Commands.Create
                 EmpCode=$"{company.CompanyCode:D4}{nextNumber:D5}"
             };
 
-            await _uow.Repository<Domain.Entities.Employee>().AddAsync(employee);
+            var roleSpec = new Domain.Specification.BaseSpecifications<CompanyRole>(x =>
+                x.CompanyId == request.CompanyId && x.NormalizedName == "EMPLOYEE");
+            var employeeRole = await _uow.Repository<CompanyRole>().GetByIdSpecAsync(roleSpec, cancellationToken);
+            if (employeeRole is null)
+            {
+                employeeRole = new CompanyRole
+                {
+                    CompanyId = request.CompanyId,
+                    Name = "Employee",
+                    NormalizedName = "EMPLOYEE",
+                    IsSystem = true
+                };
+                await _uow.Repository<CompanyRole>().AddAsync(employeeRole, cancellationToken);
+            }
+
+            var assignment = new CompanyUserRole
+            {
+                UserId = userId,
+                CompanyRole = employeeRole
+            };
+
+            await _uow.Repository<Domain.Entities.Employee>().AddAsync(employee, cancellationToken);
+            await _uow.Repository<CompanyUserRole>().AddAsync(assignment, cancellationToken);
             await _uow.SaveChangeAsync(cancellationToken);
             return BaseApiResponse.Success(201, "Employee created successfully.");
         }

@@ -36,10 +36,10 @@ namespace application.usecases.employee.queries.getall
                                            PhoneNumber=e.User.PhoneNumber,
                                            NationalityNumber=e.NationalityNumber,
                                            Status=e.Status.ToString()
-                                       },spec);
+                                       }, spec, cancellationToken);
 
             var totalcount = await _uow.Repository<Domain.Entities.Employee>()
-                                       .CountWithSpec(countspec);
+                                       .CountWithSpec(countspec, cancellationToken);
 
 
             return new PaginationDTO<EmployeeResponse>

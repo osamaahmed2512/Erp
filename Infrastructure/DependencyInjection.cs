@@ -15,6 +15,7 @@ using Domain.Entities;
 using Infrastructure.Setting;
 using Application.Interfaces.InternalServices;
 using Domain.Common;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Infrastructure
 {
@@ -68,13 +69,16 @@ namespace Infrastructure
             services.AddScoped<IUnitOfWork, Infrastructure.UnitOfWork.UnitOfWork>();
             services.AddScoped<IEmailService, EmailService>();
             services.AddScoped<ICurrentUserService, CurrentUserService>();
+            services.AddScoped<IAuthorizationHandler, PermissionAuthorizationHandler>();
+            services.AddHttpContextAccessor();
             services.AddAuthorization(options =>
             {
                 foreach (var permission in Permissions.GetAll())
                 {
                     options.AddPolicy(permission, policy =>
                     {
-                        policy.RequireClaim("permission", permission);
+                        policy.RequireAuthenticatedUser();
+                        policy.AddRequirements(new PermissionRequirement(permission));
                     });
                 }
             });

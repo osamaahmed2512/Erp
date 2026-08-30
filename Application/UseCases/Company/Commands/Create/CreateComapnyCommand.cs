@@ -1,18 +1,12 @@
-﻿using Application.Dtos.Company;
+using Application.Dtos.Company;
 using Application.Dtos.Response;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Application.UseCases.Company.Commands.Create
+namespace Application.UseCases.Company.Commands.Create;
+
+[Obsolete("Use CreateCompanyWithOwnerCommand. Kept only for compatibility with existing application tests.")]
+public sealed class CreateComapnyCommand : IRequest<BaseApiResponse>
 {
-    public class CreateComapnyCommand:IRequest<BaseApiResponse>
-    {
-        public CreateCompanyDto dto { get; set; }
-        public Guid OwnerId { get; set; }
-
-    }
+    public CreateCompanyDto dto { get; set; } = null!;
+    public Guid OwnerId { get; set; }
 }

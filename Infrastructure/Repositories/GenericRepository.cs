@@ -21,16 +21,16 @@ namespace Infrastructure.Repositories
             _dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
         }
 
-        public async Task AddAsync(T entity)
+        public async Task AddAsync(T entity, CancellationToken cancellationToken = default)
         {
-            await _dbContext.Set<T>().AddAsync(entity);
+            await _dbContext.Set<T>().AddAsync(entity, cancellationToken);
         }
-        public async Task AddRangeAsync(IEnumerable<T> entities)
+        public async Task AddRangeAsync(IEnumerable<T> entities, CancellationToken cancellationToken = default)
         {
             if (entities == null || !entities.Any())
                 return;
 
-            await _dbContext.Set<T>().AddRangeAsync(entities);
+            await _dbContext.Set<T>().AddRangeAsync(entities, cancellationToken);
         }
 
         public Task UpdateRangeAsync(IEnumerable<T> entities)
@@ -55,60 +55,61 @@ namespace Infrastructure.Repositories
             return Task.CompletedTask;
         }
 
-        public async Task<T> GetByIdAsync(Guid id)
+        public async Task<T> GetByIdAsync(Guid id, CancellationToken cancellationToken = default)
         {
-            return await _dbContext.Set<T>().FindAsync(id);
+            return await _dbContext.Set<T>().FindAsync([id], cancellationToken);
         }
 
-        public async Task<T> GetByIdSpecAsync(ISpecification<T> spec)
+        public async Task<T> GetByIdSpecAsync(ISpecification<T> spec, CancellationToken cancellationToken = default)
         {
-            return await ApplySpecification(spec).AsTracking().FirstOrDefaultAsync();
+            return await ApplySpecification(spec).AsTracking().FirstOrDefaultAsync(cancellationToken);
         }
 
-        public async Task<IReadOnlyList<T>> GetAllWithSpecAsync(ISpecification<T> spec, bool asNoTracking = true)
+        public async Task<IReadOnlyList<T>> GetAllWithSpecAsync(ISpecification<T> spec, bool asNoTracking = true, CancellationToken cancellationToken = default)
         {
             var query = ApplySpecification(spec);
 
             if (asNoTracking)
                 query = query.AsNoTracking();
 
-            return await query.ToListAsync();
+            return await query.ToListAsync(cancellationToken);
         }
 
-        public async Task<IReadOnlyList<T>> GetAllAsync()
+        public async Task<IReadOnlyList<T>> GetAllAsync(CancellationToken cancellationToken = default)
         {
-            return await _dbContext.Set<T>().AsNoTracking().ToListAsync();
+            return await _dbContext.Set<T>().AsNoTracking().ToListAsync(cancellationToken);
         }
 
-        public async Task<int> CountWithSpec(ISpecification<T> spec)
+        public async Task<int> CountWithSpec(ISpecification<T> spec, CancellationToken cancellationToken = default)
         {
-            return await ApplySpecification(spec).CountAsync();
+            return await ApplySpecification(spec).CountAsync(cancellationToken);
         }
-        public async Task<int> CountAsync()
+        public async Task<int> CountAsync(CancellationToken cancellationToken = default)
         {
-            return await _dbContext.Set<T>().CountAsync();
+            return await _dbContext.Set<T>().CountAsync(cancellationToken);
         }
         public IQueryable<T> GetQueryableWithSpec(ISpecification<T> spec)
         {
             return ApplySpecification(spec);
         }
 
-        public async Task<List<TResult>> GetProjectedAsync<TResult>(Expression<Func<T, TResult>> selector, ISpecification<T>? spec = null)
+        public async Task<List<TResult>> GetProjectedAsync<TResult>(Expression<Func<T, TResult>> selector, ISpecification<T>? spec = null, CancellationToken cancellationToken = default)
         {
             return await ApplySpecification(spec)
                          .AsNoTracking()
                          .Select(selector)
-                         .ToListAsync();
+                         .ToListAsync(cancellationToken);
         }
 
         public async Task<TResult?> GetSingleProjectedAsync<TResult>(
                                 Expression<Func<T, TResult>> selector,
-                                ISpecification<T>? spec = null)
+                                ISpecification<T>? spec = null,
+                                CancellationToken cancellationToken = default)
         {
             return await ApplySpecification(spec)
                 .AsNoTracking()
                 .Select(selector)
-                .FirstOrDefaultAsync();
+                .FirstOrDefaultAsync(cancellationToken);
         }
 
 
@@ -118,18 +119,18 @@ namespace Infrastructure.Repositories
                 ? _dbContext.Set<T>().AsQueryable()
                 : SpecificationsEvaluator<T>.GetQuery(_dbContext.Set<T>(), spec);
         }
-        public async Task<bool> AnyAsync(Expression<Func<T, bool>> predicate)
+        public async Task<bool> AnyAsync(Expression<Func<T, bool>> predicate, CancellationToken cancellationToken = default)
         {
             return await _dbContext.Set<T>()
                 .AsNoTracking()
-                .AnyAsync(predicate);
+                .AnyAsync(predicate, cancellationToken);
         }
 
-        public async Task<bool> AnyAsync(ISpecification<T> spec)
+        public async Task<bool> AnyAsync(ISpecification<T> spec, CancellationToken cancellationToken = default)
         {
             return await ApplySpecification(spec)
                 .AsNoTracking()
-                .AnyAsync();
+                .AnyAsync(cancellationToken);
         }
         public async Task<List<T>> FromSqlAsync(string sql, params object[] parameters)
         {

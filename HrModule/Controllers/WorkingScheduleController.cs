@@ -25,20 +25,27 @@ public class WorkingScheduleController : BaseController
     [HttpPost]
     public async Task<IActionResult> Create([FromBody] CreateWorkingScheduleDto dto)
     {
-        var result = await _mediator.Send(new CreateWorkingScheduleCommand(dto, UserId!.Value, IsSuperAdmin));
+        if (!TryResolveCompanyId(dto.CompanyId, out var companyId))
+            return BadRequest("A valid company context is required and must match the current account.");
+        dto.CompanyId = companyId;
+        var result = await _mediator.Send(new CreateWorkingScheduleCommand(dto, UserId!.Value, true));
         return StatusCode(result.StatusCode, result);
     }
 
     [Authorize(Policy = Permissions.WorkingSchedules_ViewAll)]
     [HttpGet]
-    public async Task<IActionResult> GetAll([FromQuery] WorkingSchedulePaginationParams parameters) =>
-        Ok(await _mediator.Send(new GetWorkingSchedulesQuery(parameters, UserId!.Value, IsSuperAdmin)));
+    public async Task<IActionResult> GetAll([FromQuery] WorkingSchedulePaginationParams parameters)
+    {
+        if (!IsSystemUser)
+            parameters.CompanyId = UserCompanyId;
+        return Ok(await _mediator.Send(new GetWorkingSchedulesQuery(parameters, UserId!.Value, true)));
+    }
 
     [Authorize(Policy = Permissions.WorkingSchedules_View)]
     [HttpGet("{id:guid}")]
     public async Task<IActionResult> GetById(Guid id)
     {
-        var result = await _mediator.Send(new GetWorkingScheduleByIdQuery(id, UserId!.Value, IsSuperAdmin));
+        var result = await _mediator.Send(new GetWorkingScheduleByIdQuery(id, UserId!.Value, true));
         return StatusCode(result.StatusCode, result);
     }
 
@@ -46,7 +53,7 @@ public class WorkingScheduleController : BaseController
     [HttpPut("{id:guid}")]
     public async Task<IActionResult> Update(Guid id, [FromBody] UpdateWorkingScheduleDto dto)
     {
-        var result = await _mediator.Send(new UpdateWorkingScheduleCommand(id, dto, UserId!.Value, IsSuperAdmin));
+        var result = await _mediator.Send(new UpdateWorkingScheduleCommand(id, dto, UserId!.Value, true));
         return StatusCode(result.StatusCode, result);
     }
 
@@ -54,7 +61,7 @@ public class WorkingScheduleController : BaseController
     [HttpPut("{id:guid}/status")]
     public async Task<IActionResult> ChangeStatus(Guid id, [FromQuery] bool isActive)
     {
-        var result = await _mediator.Send(new ChangeWorkingScheduleStatusCommand(id, isActive, UserId!.Value, IsSuperAdmin));
+        var result = await _mediator.Send(new ChangeWorkingScheduleStatusCommand(id, isActive, UserId!.Value, true));
         return StatusCode(result.StatusCode, result);
     }
 
@@ -62,12 +69,17 @@ public class WorkingScheduleController : BaseController
     [HttpDelete("{id:guid}")]
     public async Task<IActionResult> Delete(Guid id)
     {
-        var result = await _mediator.Send(new DeleteWorkingScheduleCommand(id, UserId!.Value, IsSuperAdmin));
+        var result = await _mediator.Send(new DeleteWorkingScheduleCommand(id, UserId!.Value, true));
         return StatusCode(result.StatusCode, result);
     }
 
-    [Authorize(Roles = "SuperAdmin,Admin,HR,Owner")]
+    [Authorize(Policy = Permissions.WorkingSchedules_View)]
     [HttpGet("dropdown")]
-    public async Task<IActionResult> DropDown([FromQuery] Guid? companyId) =>
-        Ok(await _mediator.Send(new GetWorkingScheduleDropDownQuery(companyId, UserId!.Value, IsSuperAdmin)));
+    public async Task<IActionResult> DropDown([FromQuery] Guid? companyId)
+    {
+        if (!TryResolveCompanyId(companyId, out var resolvedCompanyId))
+            return BadRequest("A valid company context is required and must match the current account.");
+        return Ok(await _mediator.Send(
+            new GetWorkingScheduleDropDownQuery(resolvedCompanyId, UserId!.Value, true)));
+    }
 }

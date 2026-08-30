@@ -15,5 +15,6 @@ namespace Application.UseCases.Position.Commands.Update
         public UpdatePositionDto Dto { get; set; }
         public Guid OwnerId { get; set; }
         public bool IsAdmin { get; set; }
+        public Guid CompanyId { get; set; }
     }
 }

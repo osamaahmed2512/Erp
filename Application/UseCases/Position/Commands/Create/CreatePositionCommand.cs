@@ -10,5 +10,6 @@ namespace Application.UseCases.Position.Commands.Create
         public CreatePositionDto Dto { get; set; }
         public Guid OwnerId { get; set; }
         public bool HasGlobalAccess { get; set; }
+        public Guid CompanyId { get; set; }
     }
 }

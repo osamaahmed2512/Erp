@@ -103,18 +103,7 @@ public abstract class WorkingScheduleRequestDto : IValidatableObject
 
 public class CreateWorkingScheduleDto : WorkingScheduleRequestDto
 {
-    public Guid CompanyId { get; set; }
-
-    public override IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
-    {
-        foreach (var result in base.Validate(validationContext))
-            yield return result;
-
-        if (CompanyId == Guid.Empty)
-            yield return new ValidationResult(
-                "Company is required.",
-                [nameof(CompanyId)]);
-    }
+    public Guid? CompanyId { get; set; }
 }
 
 public class UpdateWorkingScheduleDto : WorkingScheduleRequestDto

@@ -12,9 +12,9 @@ namespace Infrastructure.Seeders
 {
     public class AdminSeeder
     {
-        public static async Task SeedAsync(UserManager<ApplicationUser> userManager)
+        public static async Task SeedAsync(UserManager<ApplicationUser> userManager, string rootEmail)
         {
-            var email = "admin2512003@gmail.com";
+            var email = rootEmail;
 
             var user = await userManager.FindByEmailAsync(email);
 
@@ -25,12 +25,24 @@ namespace Infrastructure.Seeders
                     FirstName= "admin",                  
                     UserName = email,
                     Email = email,
-                    EmailConfirmed = true
+                    EmailConfirmed = true,
+                    AccountType = AccountType.System
                 };
 
                 await userManager.CreateAsync(user, "123456");
 
                 await userManager.AddToRoleAsync(user, SystemRoles.SuperAdmin.ToString());
+            }
+            if (!user.IsRootSuperAdmin)
+            {
+                user.IsRootSuperAdmin = true;
+                await userManager.UpdateAsync(user);
+            }
+            if (user.AccountType != AccountType.System || user.CompanyId.HasValue)
+            {
+                user.AccountType = AccountType.System;
+                user.CompanyId = null;
+                await userManager.UpdateAsync(user);
             }
         }
     }

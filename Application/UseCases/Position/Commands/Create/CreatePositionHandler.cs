@@ -22,6 +22,8 @@ namespace Application.UseCases.Position.Commands.Create
             var department = await _uow.Repository<Domain.Entities.Department>().GetByIdAsync(dto.DepartmentId);
             if (department is null || department.Status == Domain.Enum.EntityStatus.Deleted)
                 return BaseApiResponse.Fail(404, "Department not found.");
+            if (department.CompanyId != request.CompanyId)
+                return BaseApiResponse.Fail(400, "Department does not belong to the active company.");
 
             var company = await _uow.Repository<Domain.Entities.Company>().GetByIdAsync(department.CompanyId);
             if (company is null)

@@ -1,5 +1,4 @@
 ﻿using Application.Dtos.Response;
-using Application.Interfaces.InternalServices;
 using Domain.Interfaces.UnitOfWork;
 using Domain.Specification.Departement;
 using MediatR;
@@ -14,28 +13,26 @@ namespace Application.UseCases.Departement.Commands.Create
     public class CreateDepartmentHandler : IRequestHandler<CreateDepartmentCommand, BaseApiResponse>
     {
         private readonly IUnitOfWork _unitOfWork;
-        private readonly ICurrentUserService _currentUserService;
-        public CreateDepartmentHandler(IUnitOfWork unitOfWork,ICurrentUserService currentUserService)
+        public CreateDepartmentHandler(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
-            _currentUserService = currentUserService;
         }
 
         public async Task<BaseApiResponse> Handle(CreateDepartmentCommand request, CancellationToken cancellationToken)
         {
             var dto = request.Dto;
+            if (!dto.CompanyId.HasValue)
+                return BaseApiResponse.Fail(400, "A valid company context is required.");
+            var companyId = dto.CompanyId.Value;
 
-            // Validate company exists and belongs to owner
-            var company = await _unitOfWork.Repository<Domain.Entities.Company>().GetByIdAsync(dto.CompanyId);
+            var company = await _unitOfWork.Repository<Domain.Entities.Company>()
+                .GetByIdAsync(companyId, cancellationToken);
             if (company is null)
                 return BaseApiResponse.Fail(404, "Company not found.");
 
-            if (company.OwnerId != request.OwnerId &&!_currentUserService.IsSuperAdmin)
-                return BaseApiResponse.Fail(403, "You are not allowed to add departments to this company.");
-
-            var spec = new DepartmentSpecification(dto.Name.Trim(), dto.CompanyId);
+            var spec = new DepartmentSpecification(dto.Name.Trim(), companyId);
             var existing = await _unitOfWork.Repository<Domain.Entities.Department>()
-                .GetSingleProjectedAsync(x => new { x.Name }, spec);
+                .GetSingleProjectedAsync(x => new { x.Name }, spec, cancellationToken);
 
             if (existing is not null)
                 return BaseApiResponse.Fail(400, "A department with this name already exists in the company.");
@@ -44,12 +41,12 @@ namespace Application.UseCases.Departement.Commands.Create
             {
                 Name = dto.Name.Trim(),
                 Description = dto.Description?.Trim(),
-                CompanyId = dto.CompanyId,
+                CompanyId = companyId,
                 Status = Domain.Enum.EntityStatus.Active,
                 CreatedAt = DateTime.UtcNow
             };
 
-            await _unitOfWork.Repository<Domain.Entities.Department>().AddAsync(department);
+            await _unitOfWork.Repository<Domain.Entities.Department>().AddAsync(department, cancellationToken);
             await _unitOfWork.SaveChangeAsync(cancellationToken);
 
             return BaseApiResponse.Success(201, "Department created successfully.");

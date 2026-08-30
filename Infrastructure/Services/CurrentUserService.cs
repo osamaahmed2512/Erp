@@ -20,7 +20,7 @@ namespace Infrastructure.Services
         public Guid? UserId => Guid.Parse(_context.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier));
         public string? UserRole => _context.HttpContext.User.FindFirstValue(ClaimTypes.Role);
         public bool IsAdmin => string.Equals(UserRole, "Admin", StringComparison.OrdinalIgnoreCase);
-        public bool IsSuperAdmin => string.Equals(UserRole, "SuperAdmin", StringComparison.OrdinalIgnoreCase);
+        public bool IsSuperAdmin => string.Equals(_context.HttpContext?.User.FindFirstValue("root_super_admin"), "true", StringComparison.OrdinalIgnoreCase);
         public bool IsHr => string.Equals(UserRole, "HR", StringComparison.OrdinalIgnoreCase);
     }
 }

@@ -54,6 +54,8 @@ namespace Domain.Specification.Company
             {
                 criteria = criteria.AndAlso(e => e.OwnerId == Params.OwnerId);
             }
+            if (Params.CompanyId.HasValue && Params.CompanyId.Value != Guid.Empty)
+                criteria = criteria.AndAlso(e => e.Id == Params.CompanyId.Value);
             AddCriteria(criteria); 
 
             AddOrderByDescending(e => e.CreatedAt);

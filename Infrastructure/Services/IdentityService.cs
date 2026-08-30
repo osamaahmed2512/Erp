@@ -43,7 +43,9 @@ namespace Infrastructure.Services
             var appUser = await _userManager.FindByIdAsync(user.Id.ToString());
             return await _userManager.CheckPasswordAsync(appUser, password);
         }
-        public async Task<Guid> CreateUserAsync(string email, string password ,string Role, string firstName, string lastName,string? phone)
+        public async Task<Guid> CreateUserAsync(string email, string password, string role,
+            string firstName, string lastName, string? phone = null,
+            AccountType accountType = AccountType.System, Guid? companyId = null)
         {
             var user = new ApplicationUser
             {
@@ -51,7 +53,9 @@ namespace Infrastructure.Services
                 Email = email,
                 FirstName=firstName,
                 LastName=lastName,
-                EmailConfirmed=true
+                EmailConfirmed=true,
+                AccountType = accountType,
+                CompanyId = companyId
             };
             if(phone != null)
             {
@@ -62,8 +66,18 @@ namespace Infrastructure.Services
             if (!result.Succeeded)
                 throw new Exception("User creation failed");
 
-            await _userManager.AddToRoleAsync(user, Role);
+            await _userManager.AddToRoleAsync(user, role);
             return user.Id;
+        }
+        public async Task AssignCompanyAsync(Guid userId, Guid companyId)
+        {
+            var user = await _userManager.FindByIdAsync(userId.ToString())
+                ?? throw new InvalidOperationException("User not found.");
+            user.AccountType = AccountType.Company;
+            user.CompanyId = companyId;
+            var result = await _userManager.UpdateAsync(user);
+            if (!result.Succeeded)
+                throw new InvalidOperationException(string.Join(", ", result.Errors.Select(x => x.Description)));
         }
         public async Task ChangeEmailAsync(Guid userId, string newEmail)
         {

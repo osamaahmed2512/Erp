@@ -1,6 +1,5 @@
 ﻿using Application.Dtos.Company;
 using Application.Dtos.Employee;
-using Application.UseCases.Company.Commands.Create;
 using Application.UseCases.Company.Commands.Delete;
 using Application.UseCases.Company.Commands.Status;
 using Application.UseCases.Company.Commands.Update;
@@ -26,19 +25,7 @@ namespace HrModule.Controllers
         {
             _mediator = mediator;
         }
-        [Authorize(Policy = Permissions.Companies_Add)]
-        [HttpPost]
-        public async Task<IActionResult> Create([FromBody] CreateCompanyDto dto)
-        {
-            var result = await _mediator.Send(new CreateComapnyCommand
-            {
-                dto = dto,
-                OwnerId = UserId.Value
-            });
-            return StatusCode(result.StatusCode, result);
-        }
-
-        [Authorize(Roles = "SuperAdmin")]
+        [Authorize(Policy = Permissions.Companies_Edit)]
         [HttpPost("{id:guid}")]
         public async Task<IActionResult> Update(Guid id,[FromBody] UpdateCompanyDto dto)
         {
@@ -50,14 +37,14 @@ namespace HrModule.Controllers
             });
             return StatusCode(result.StatusCode, result);
         }
-        [Authorize(Roles = "SuperAdmin")]
+        [Authorize(Policy = Permissions.Companies_Delete)]
         [HttpDelete("{id:guid}")]
         public async Task<IActionResult> Delete(Guid id)
         {
             var result = await _mediator.Send(new DeleteCompanyCommand { companyId = id });
             return StatusCode(result.StatusCode, result);
         }
-        [Authorize(Roles = "SuperAdmin")]
+        [Authorize(Policy = Permissions.Companies_View)]
         [HttpGet("{id:guid}")]
         public async Task<IActionResult> GetById(Guid id)
         {
@@ -65,10 +52,11 @@ namespace HrModule.Controllers
             return StatusCode(result.StatusCode, result);
 
         }
-        [Authorize(Roles = "SuperAdmin")]
+        [Authorize(Policy = Permissions.Companies_View)]
         [HttpGet]
         public async Task<IActionResult> GetAll([FromQuery] CompanyPaginationParams paginationParams)
         {
+            if (!IsSystemUser) paginationParams.CompanyId = UserCompanyId;
             if (IsOwner)
             {
                 paginationParams.OwnerId = UserId.Value;
@@ -76,14 +64,14 @@ namespace HrModule.Controllers
             var result = await _mediator.Send(new GetAllCompaniesQuery(paginationParams));
             return Ok(result);
         }
-        [Authorize(Roles = "SuperAdmin")]
+        [Authorize(Policy = Permissions.Companies_Edit)]
         [HttpGet("{id:guid}/status")]
         public async Task<IActionResult> changeStatus(Guid id ,string status)
         {
             var result = await _mediator.Send(new CompanyUpdateStatuscommand { Id=id,status =status});
             return StatusCode(result.StatusCode, result);
         }
-        [Authorize(Roles = "SuperAdmin")]
+        [Authorize(Policy = Permissions.Companies_View)]
         [HttpGet("DropDown")]
         public async Task<IActionResult> DropDown()
         {

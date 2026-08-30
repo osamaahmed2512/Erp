@@ -31,6 +31,12 @@ namespace Infrastructure.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
+                    b.Property<int>("AccountType")
+                        .HasColumnType("int");
+
+                    b.Property<Guid?>("CompanyId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
@@ -51,6 +57,9 @@ namespace Infrastructure.Migrations
 
                     b.Property<string>("ImgUrl")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsRootSuperAdmin")
+                        .HasColumnType("bit");
 
                     b.Property<string>("LastName")
                         .HasColumnType("nvarchar(max)");
@@ -98,6 +107,8 @@ namespace Infrastructure.Migrations
                         .HasColumnType("nvarchar(256)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CompanyId");
 
                     b.HasIndex("NormalizedEmail")
                         .HasDatabaseName("EmailIndex");
@@ -153,7 +164,7 @@ namespace Infrastructure.Migrations
 
                     b.HasIndex("EmployeeId");
 
-                    b.ToTable("Attendances", (string)null);
+                    b.ToTable("Attendances");
                 });
 
             modelBuilder.Entity("Domain.Entities.Company", b =>
@@ -220,6 +231,96 @@ namespace Infrastructure.Migrations
                     b.ToTable("Company", (string)null);
                 });
 
+            modelBuilder.Entity("Domain.Entities.CompanyRole", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("CompanyId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsSystem")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NormalizedName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CompanyId", "NormalizedName")
+                        .IsUnique();
+
+                    b.ToTable("CompanyRoles");
+                });
+
+            modelBuilder.Entity("Domain.Entities.CompanyRolePermission", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("CompanyRoleId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("PermissionDefinitionId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PermissionDefinitionId");
+
+                    b.HasIndex("CompanyRoleId", "PermissionDefinitionId")
+                        .IsUnique();
+
+                    b.ToTable("CompanyRolePermissions");
+                });
+
+            modelBuilder.Entity("Domain.Entities.CompanyUserRole", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("CompanyRoleId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CompanyRoleId");
+
+                    b.HasIndex("UserId", "CompanyRoleId")
+                        .IsUnique();
+
+                    b.ToTable("CompanyUserRoles");
+                });
+
             modelBuilder.Entity("Domain.Entities.Contract", b =>
                 {
                     b.Property<Guid>("Id")
@@ -261,7 +362,7 @@ namespace Infrastructure.Migrations
 
                     b.HasIndex("EmployeeId");
 
-                    b.ToTable("Contracts", (string)null);
+                    b.ToTable("Contracts");
                 });
 
             modelBuilder.Entity("Domain.Entities.Department", b =>
@@ -293,7 +394,7 @@ namespace Infrastructure.Migrations
 
                     b.HasIndex("CompanyId");
 
-                    b.ToTable("Departments", (string)null);
+                    b.ToTable("Departments");
                 });
 
             modelBuilder.Entity("Domain.Entities.Employee", b =>
@@ -362,7 +463,7 @@ namespace Infrastructure.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Employees", (string)null);
+                    b.ToTable("Employees");
                 });
 
             modelBuilder.Entity("Domain.Entities.EmploymentAssignment", b =>
@@ -411,7 +512,7 @@ namespace Infrastructure.Migrations
                     b.HasIndex("EmployeeId", "EffectiveFrom")
                         .IsUnique();
 
-                    b.ToTable("EmploymentAssignments", (string)null);
+                    b.ToTable("EmploymentAssignments");
                 });
 
             modelBuilder.Entity("Domain.Entities.LeaveBalance", b =>
@@ -441,7 +542,7 @@ namespace Infrastructure.Migrations
 
                     b.HasIndex("LeaveTypeId");
 
-                    b.ToTable("LeaveBalances", (string)null);
+                    b.ToTable("LeaveBalances");
                 });
 
             modelBuilder.Entity("Domain.Entities.LeaveRequest", b =>
@@ -476,7 +577,7 @@ namespace Infrastructure.Migrations
 
                     b.HasIndex("LeaveTypeId");
 
-                    b.ToTable("LeaveRequests", (string)null);
+                    b.ToTable("LeaveRequests");
                 });
 
             modelBuilder.Entity("Domain.Entities.LeaveType", b =>
@@ -494,7 +595,7 @@ namespace Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("LeaveTypes", (string)null);
+                    b.ToTable("LeaveTypes");
                 });
 
             modelBuilder.Entity("Domain.Entities.Nationality", b =>
@@ -548,7 +649,7 @@ namespace Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("PayrollRuns", (string)null);
+                    b.ToTable("PayrollRuns");
                 });
 
             modelBuilder.Entity("Domain.Entities.Payslip", b =>
@@ -581,7 +682,43 @@ namespace Infrastructure.Migrations
 
                     b.HasIndex("PayrollRunId");
 
-                    b.ToTable("Payslips", (string)null);
+                    b.ToTable("Payslips");
+                });
+
+            modelBuilder.Entity("Domain.Entities.PermissionDefinition", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Action")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Key")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<Guid>("SystemPageId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Key")
+                        .IsUnique();
+
+                    b.HasIndex("SystemPageId");
+
+                    b.ToTable("PermissionDefinitions");
                 });
 
             modelBuilder.Entity("Domain.Entities.Position", b =>
@@ -613,7 +750,7 @@ namespace Infrastructure.Migrations
 
                     b.HasIndex("DepartmentId");
 
-                    b.ToTable("Positions", (string)null);
+                    b.ToTable("Positions");
                 });
 
             modelBuilder.Entity("Domain.Entities.RefreshToken", b =>
@@ -632,7 +769,7 @@ namespace Infrastructure.Migrations
 
                     b.HasKey("Token");
 
-                    b.ToTable("RefreshToken", (string)null);
+                    b.ToTable("RefreshToken");
                 });
 
             modelBuilder.Entity("Domain.Entities.SalaryComponent", b =>
@@ -658,7 +795,178 @@ namespace Infrastructure.Migrations
 
                     b.HasIndex("PayslipId");
 
-                    b.ToTable("SalaryComponents", (string)null);
+                    b.ToTable("SalaryComponents");
+                });
+
+            modelBuilder.Entity("Domain.Entities.SystemPage", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Audience")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Category")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("DisplayOrder")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Icon")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Key")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Module")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Route")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Key")
+                        .IsUnique();
+
+                    b.ToTable("SystemPages");
+                });
+
+            modelBuilder.Entity("Domain.Entities.SystemRole", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsProtected")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NormalizedName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedName")
+                        .IsUnique();
+
+                    b.ToTable("SystemRoles");
+                });
+
+            modelBuilder.Entity("Domain.Entities.SystemRolePermission", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("PermissionDefinitionId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("SystemRoleId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PermissionDefinitionId");
+
+                    b.HasIndex("SystemRoleId", "PermissionDefinitionId")
+                        .IsUnique();
+
+                    b.ToTable("SystemRolePermissions");
+                });
+
+            modelBuilder.Entity("Domain.Entities.SystemUserRole", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("SystemRoleId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("SystemRoleId");
+
+                    b.HasIndex("UserId", "SystemRoleId")
+                        .IsUnique();
+
+                    b.ToTable("SystemUserRoles");
+                });
+
+            modelBuilder.Entity("Domain.Entities.UserPermissionOverride", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Effect")
+                        .HasColumnType("int");
+
+                    b.Property<Guid>("PermissionDefinitionId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PermissionDefinitionId");
+
+                    b.HasIndex("UserId", "PermissionDefinitionId")
+                        .IsUnique();
+
+                    b.ToTable("UserPermissionOverrides");
                 });
 
             modelBuilder.Entity("Domain.Entities.WorkingSchedule", b =>
@@ -694,7 +1002,7 @@ namespace Infrastructure.Migrations
                     b.HasIndex("CompanyId", "Name")
                         .IsUnique();
 
-                    b.ToTable("WorkingSchedules", (string)null);
+                    b.ToTable("WorkingSchedules");
                 });
 
             modelBuilder.Entity("Domain.Entities.WorkingScheduleDay", b =>
@@ -732,7 +1040,7 @@ namespace Infrastructure.Migrations
                     b.HasIndex("WorkingScheduleId", "DayOfWeek")
                         .IsUnique();
 
-                    b.ToTable("WorkingScheduleDays", (string)null);
+                    b.ToTable("WorkingScheduleDays");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole<System.Guid>", b =>
@@ -866,6 +1174,16 @@ namespace Infrastructure.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("Domain.Entities.ApplicationUser", b =>
+                {
+                    b.HasOne("Domain.Entities.Company", "Company")
+                        .WithMany()
+                        .HasForeignKey("CompanyId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.Navigation("Company");
+                });
+
             modelBuilder.Entity("Domain.Entities.Attendance", b =>
                 {
                     b.HasOne("Domain.Entities.Employee", "Employee")
@@ -886,6 +1204,55 @@ namespace Infrastructure.Migrations
                         .IsRequired();
 
                     b.Navigation("Owner");
+                });
+
+            modelBuilder.Entity("Domain.Entities.CompanyRole", b =>
+                {
+                    b.HasOne("Domain.Entities.Company", "Company")
+                        .WithMany()
+                        .HasForeignKey("CompanyId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Company");
+                });
+
+            modelBuilder.Entity("Domain.Entities.CompanyRolePermission", b =>
+                {
+                    b.HasOne("Domain.Entities.CompanyRole", "CompanyRole")
+                        .WithMany("Permissions")
+                        .HasForeignKey("CompanyRoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Domain.Entities.PermissionDefinition", "PermissionDefinition")
+                        .WithMany()
+                        .HasForeignKey("PermissionDefinitionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("CompanyRole");
+
+                    b.Navigation("PermissionDefinition");
+                });
+
+            modelBuilder.Entity("Domain.Entities.CompanyUserRole", b =>
+                {
+                    b.HasOne("Domain.Entities.CompanyRole", "CompanyRole")
+                        .WithMany("Users")
+                        .HasForeignKey("CompanyRoleId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("Domain.Entities.ApplicationUser", "User")
+                        .WithMany("CompanyRoles")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("CompanyRole");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Domain.Entities.Contract", b =>
@@ -1041,6 +1408,17 @@ namespace Infrastructure.Migrations
                     b.Navigation("PayrollRun");
                 });
 
+            modelBuilder.Entity("Domain.Entities.PermissionDefinition", b =>
+                {
+                    b.HasOne("Domain.Entities.SystemPage", "SystemPage")
+                        .WithMany("Permissions")
+                        .HasForeignKey("SystemPageId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("SystemPage");
+                });
+
             modelBuilder.Entity("Domain.Entities.Position", b =>
                 {
                     b.HasOne("Domain.Entities.Department", "Department")
@@ -1061,6 +1439,63 @@ namespace Infrastructure.Migrations
                         .IsRequired();
 
                     b.Navigation("Payslip");
+                });
+
+            modelBuilder.Entity("Domain.Entities.SystemRolePermission", b =>
+                {
+                    b.HasOne("Domain.Entities.PermissionDefinition", "PermissionDefinition")
+                        .WithMany()
+                        .HasForeignKey("PermissionDefinitionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Domain.Entities.SystemRole", "SystemRole")
+                        .WithMany("Permissions")
+                        .HasForeignKey("SystemRoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("PermissionDefinition");
+
+                    b.Navigation("SystemRole");
+                });
+
+            modelBuilder.Entity("Domain.Entities.SystemUserRole", b =>
+                {
+                    b.HasOne("Domain.Entities.SystemRole", "SystemRole")
+                        .WithMany("Users")
+                        .HasForeignKey("SystemRoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Domain.Entities.ApplicationUser", "User")
+                        .WithMany("SystemRoles")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("SystemRole");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Domain.Entities.UserPermissionOverride", b =>
+                {
+                    b.HasOne("Domain.Entities.PermissionDefinition", "PermissionDefinition")
+                        .WithMany()
+                        .HasForeignKey("PermissionDefinitionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Domain.Entities.ApplicationUser", "User")
+                        .WithMany("PermissionOverrides")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("PermissionDefinition");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Domain.Entities.WorkingSchedule", b =>
@@ -1138,7 +1573,13 @@ namespace Infrastructure.Migrations
 
             modelBuilder.Entity("Domain.Entities.ApplicationUser", b =>
                 {
+                    b.Navigation("CompanyRoles");
+
                     b.Navigation("OwnedCompanies");
+
+                    b.Navigation("PermissionOverrides");
+
+                    b.Navigation("SystemRoles");
                 });
 
             modelBuilder.Entity("Domain.Entities.Company", b =>
@@ -1146,6 +1587,13 @@ namespace Infrastructure.Migrations
                     b.Navigation("Employees");
 
                     b.Navigation("WorkingSchedules");
+                });
+
+            modelBuilder.Entity("Domain.Entities.CompanyRole", b =>
+                {
+                    b.Navigation("Permissions");
+
+                    b.Navigation("Users");
                 });
 
             modelBuilder.Entity("Domain.Entities.Department", b =>
@@ -1173,6 +1621,18 @@ namespace Infrastructure.Migrations
             modelBuilder.Entity("Domain.Entities.PayrollRun", b =>
                 {
                     b.Navigation("Payslips");
+                });
+
+            modelBuilder.Entity("Domain.Entities.SystemPage", b =>
+                {
+                    b.Navigation("Permissions");
+                });
+
+            modelBuilder.Entity("Domain.Entities.SystemRole", b =>
+                {
+                    b.Navigation("Permissions");
+
+                    b.Navigation("Users");
                 });
 
             modelBuilder.Entity("Domain.Entities.WorkingSchedule", b =>

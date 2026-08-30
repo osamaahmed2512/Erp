@@ -9,5 +9,6 @@ namespace Domain.Specification.Params
     public class CompanyPaginationParams:PaginationParams
     {
         public Guid OwnerId { get; set; }
+        public Guid? CompanyId { get; set; }
     }
 }

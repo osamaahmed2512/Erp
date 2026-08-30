@@ -26,6 +26,9 @@ namespace HrModule.Controllers
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] CreateDepartmentDto dto)
         {
+            if (!TryResolveCompanyId(dto.CompanyId, out var companyId))
+                return BadRequest("A valid company context is required and must match the current account.");
+            dto.CompanyId = companyId;
             var result = await _mediator.Send(new CreateDepartmentCommand { Dto = dto, OwnerId = UserId!.Value });
             return StatusCode(result.StatusCode, result);
         }
@@ -39,7 +42,7 @@ namespace HrModule.Controllers
                 DepartmentId = id,
                 Dto = dto,
                 OwnerId = UserId.Value,
-                IsSuperAdmin = IsSuperAdmin
+                IsSuperAdmin = true
             });
             return StatusCode(result.StatusCode, result);
         }
@@ -60,7 +63,7 @@ namespace HrModule.Controllers
             {
                 Id = id,
                 OwnerId = UserId.Value,
-                IsSuperAdmin = IsSuperAdmin
+                IsSuperAdmin = true
             });
             return StatusCode(result.StatusCode, result);
         }
@@ -69,6 +72,8 @@ namespace HrModule.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll([FromQuery] DepartmentPaginationParams paginationParams)
         {
+            if (!IsSystemUser)
+                paginationParams.CompanyId = UserCompanyId;
             var result = await _mediator.Send(new GetAllDepartmentsQuery(paginationParams));
             return Ok(result);
         }
@@ -81,16 +86,18 @@ namespace HrModule.Controllers
             {
                 Id = id,
                 OwnerId = UserId.Value,
-                IsSuperAdmin = IsSuperAdmin
+                IsSuperAdmin = true
             });
             return StatusCode(result.StatusCode, result);
         }
 
-        [Authorize(Roles = "SuperAdmin,Admin,HR,Owner")]
+        [Authorize(Policy = Permissions.Departments_View)]
         [HttpGet("dropdown")]
         public async Task<IActionResult> DropDown([FromQuery] Guid? companyId)
         {
-            var result = await _mediator.Send(new GetDepartmentDropDownQuery { CompanyId = companyId });
+            if (!TryResolveCompanyId(companyId, out var resolvedCompanyId))
+                return BadRequest("A valid company context is required and must match the current account.");
+            var result = await _mediator.Send(new GetDepartmentDropDownQuery { CompanyId = resolvedCompanyId });
             return Ok(result);
         }
     }

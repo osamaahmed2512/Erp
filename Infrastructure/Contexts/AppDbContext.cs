@@ -15,6 +15,10 @@ namespace Infrastructure.Contexts
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
+            builder.Entity<Company>().ToTable("Company");
+            builder.Entity<Nationality>().ToTable("Nationality");
+            builder.Entity<Company>().ToTable("Company");
+            builder.Entity<Nationality>().ToTable("Nationality");
             // Owner -> Companies (One-to-Many)
             builder.Entity<Company>()
                 .HasOne(c => c.Owner)
@@ -94,9 +98,48 @@ namespace Infrastructure.Contexts
                 .HasIndex(a => new { a.EmployeeId, a.EffectiveFrom })
                 .IsUnique();
 
+            builder.Entity<SystemPage>().HasIndex(x => x.Key).IsUnique();
+            builder.Entity<PermissionDefinition>().HasIndex(x => x.Key).IsUnique();
+            builder.Entity<PermissionDefinition>()
+                .HasOne(x => x.SystemPage).WithMany(x => x.Permissions)
+                .HasForeignKey(x => x.SystemPageId).OnDelete(DeleteBehavior.Cascade);
+            builder.Entity<ApplicationUser>().HasOne(x => x.Company).WithMany()
+                .HasForeignKey(x => x.CompanyId).OnDelete(DeleteBehavior.Restrict);
+            builder.Entity<CompanyRole>().HasIndex(x => new { x.CompanyId, x.NormalizedName }).IsUnique();
+            builder.Entity<CompanyRole>().HasOne(x => x.Company).WithMany()
+                .HasForeignKey(x => x.CompanyId).OnDelete(DeleteBehavior.Cascade);
+            builder.Entity<CompanyRolePermission>().HasIndex(x => new { x.CompanyRoleId, x.PermissionDefinitionId }).IsUnique();
+            builder.Entity<CompanyRolePermission>().HasOne(x => x.CompanyRole).WithMany(x => x.Permissions)
+                .HasForeignKey(x => x.CompanyRoleId).OnDelete(DeleteBehavior.Cascade);
+            builder.Entity<CompanyRolePermission>().HasOne(x => x.PermissionDefinition).WithMany()
+                .HasForeignKey(x => x.PermissionDefinitionId).OnDelete(DeleteBehavior.Cascade);
+            builder.Entity<CompanyUserRole>().HasIndex(x => new { x.UserId, x.CompanyRoleId }).IsUnique();
+            builder.Entity<CompanyUserRole>().HasOne(x => x.User).WithMany(x => x.CompanyRoles)
+                .HasForeignKey(x => x.UserId).OnDelete(DeleteBehavior.Cascade);
+            builder.Entity<CompanyUserRole>().HasOne(x => x.CompanyRole).WithMany(x => x.Users)
+                .HasForeignKey(x => x.CompanyRoleId).OnDelete(DeleteBehavior.NoAction);
+            builder.Entity<SystemRole>().HasIndex(x => x.NormalizedName).IsUnique();
+            builder.Entity<SystemRolePermission>().HasIndex(x => new { x.SystemRoleId, x.PermissionDefinitionId }).IsUnique();
+            builder.Entity<SystemRolePermission>().HasOne(x => x.SystemRole).WithMany(x => x.Permissions)
+                .HasForeignKey(x => x.SystemRoleId).OnDelete(DeleteBehavior.Cascade);
+            builder.Entity<SystemRolePermission>().HasOne(x => x.PermissionDefinition).WithMany()
+                .HasForeignKey(x => x.PermissionDefinitionId).OnDelete(DeleteBehavior.Cascade);
+            builder.Entity<SystemUserRole>().HasIndex(x => new { x.UserId, x.SystemRoleId }).IsUnique();
+            builder.Entity<SystemUserRole>().HasOne(x => x.User).WithMany(x => x.SystemRoles)
+                .HasForeignKey(x => x.UserId).OnDelete(DeleteBehavior.Cascade);
+            builder.Entity<SystemUserRole>().HasOne(x => x.SystemRole).WithMany(x => x.Users)
+                .HasForeignKey(x => x.SystemRoleId).OnDelete(DeleteBehavior.Cascade);
+            builder.Entity<UserPermissionOverride>().HasIndex(x => new { x.UserId, x.PermissionDefinitionId }).IsUnique();
+            builder.Entity<UserPermissionOverride>().HasOne(x => x.User).WithMany(x => x.PermissionOverrides)
+                .HasForeignKey(x => x.UserId).OnDelete(DeleteBehavior.Cascade);
+            builder.Entity<UserPermissionOverride>().HasOne(x => x.PermissionDefinition).WithMany()
+                .HasForeignKey(x => x.PermissionDefinitionId).OnDelete(DeleteBehavior.Cascade);
+
         }
 
         public DbSet<Employee> Employees { get; set; }
+        public DbSet<Company> Companies { get; set; }
+        public DbSet<Nationality> Nationalities { get; set; }
         public DbSet<Department> Departments { get; set; }
         public DbSet<Position> Positions { get; set; }
         public DbSet<Contract> Contracts { get; set; }
@@ -114,5 +157,14 @@ namespace Infrastructure.Contexts
         public DbSet<Payslip> Payslips { get; set; }
         public DbSet<SalaryComponent> SalaryComponents { get; set; }
         public DbSet<RefreshToken> RefreshToken { get; set; }
+        public DbSet<SystemPage> SystemPages { get; set; }
+        public DbSet<PermissionDefinition> PermissionDefinitions { get; set; }
+        public DbSet<CompanyRole> CompanyRoles { get; set; }
+        public DbSet<CompanyRolePermission> CompanyRolePermissions { get; set; }
+        public DbSet<CompanyUserRole> CompanyUserRoles { get; set; }
+        public DbSet<SystemRole> SystemRoles { get; set; }
+        public DbSet<SystemRolePermission> SystemRolePermissions { get; set; }
+        public DbSet<SystemUserRole> SystemUserRoles { get; set; }
+        public DbSet<UserPermissionOverride> UserPermissionOverrides { get; set; }
     }
 }

@@ -73,8 +73,13 @@ namespace Infrastructure.Services
             new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
             new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
             new Claim(ClaimTypes.Email, user.Email ?? ""),
-            new Claim(ClaimTypes.Name, user.UserName ?? "")
+            new Claim(ClaimTypes.Name, user.UserName ?? ""),
+            new Claim("account_type", user.AccountType.ToString())
         };
+            if (user.CompanyId.HasValue)
+                claims.Add(new Claim("company_id", user.CompanyId.Value.ToString()));
+            if (user.IsRootSuperAdmin)
+                claims.Add(new Claim("root_super_admin", "true"));
 
             foreach (var role in roles)
             {

@@ -9,7 +9,7 @@ namespace Domain.Specification.Employee
 {
     public class EmployeeCountSpecification:EmployeeSpecification
     {
-        public EmployeeCountSpecification(PaginationParams paginationParams)
+        public EmployeeCountSpecification(EmployeePaginationParams paginationParams)
             :base(paginationParams)
         {
 
